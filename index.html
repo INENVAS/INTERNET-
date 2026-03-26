@@ -22,7 +22,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="#accueil" class="flex items-center gap-3">
-                    <img src="logo.png" alt="Logo Inenvas" class="h-14 w-auto self-center">
+                    <img src="logo.png" alt="Logo Inenvas" class="h-16 w-auto self-center" style="background-color: rgba(241, 239, 239, 0.95); border-radius: 8px;">
                     <div class="flex flex-col leading-tight font-bold text-sm self-center" style="color: #065f46;">
                         <span>Association</span>
                         <span>Intelligence</span>
@@ -40,14 +40,17 @@
         </div>
     </nav>
 
-    <header id="accueil" class="pt-32 pb-20 lg:pt-48 lg:pb-32 eco-gradient text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-emerald-400 font-semibold tracking-widest uppercase text-sm mb-4">Association Intelligence Environnementale</h2>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                L'intelligence environnementale et le numérique au service de la <span class="text-emerald-300">transition écologique</span>.
+   <header id="accueil" class="pt-32 pb-20 lg:pt-48 lg:pb-32 text-white relative" style="background-image: url('bg-header.jpg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0" style="background-color: rgba(6, 79, 60, 0.75);"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-emerald-400 font-semibold tracking-widest uppercase text-sm mb-4">Association Intelligence Environnementale
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-center">
+                L'intelligence environnementale<br>
+                et le numérique au service de<br>
+                la <span class="text-emerald-300">transition écologique</span>.
             </h1>
             <p class="text-lg md:text-xl text-emerald-100 max-w-2xl mx-auto mb-10 font-light">
-                Nous concevons les outils et les stratégies de demain pour accompagner les organisations vers un modèle durable et responsable.
+                Nous concevons des outils et accompagnons les organisations pour mettre en place des stratégies favorisant des modèles durables et responsables.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#missions" class="bg-white text-emerald-900 px-8 py-3 rounded-lg font-bold hover:bg-emerald-50 transition transform hover:-translate-y-1">Découvrir nos solutions</a>
@@ -59,15 +62,16 @@
     <!-- QUI SOMMES-NOUS -->
     <section id="qui-sommes-nous" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="mb-16">
                 <h2 class="text-3xl font-bold text-slate-900">Qui sommes-nous ?</h2>
-                <div class="h-1 w-20 bg-emerald-500 mx-auto mt-4"></div>
-            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="h-0.5 w-full bg-emerald-500 mt-4"></div>
+           <div class="flex flex-col lg:flex-row items-start gap-16">
                 <div class="lg:w-1/2">
-                    <p class="text-slate-700 text-lg leading-relaxed mb-6">
-                    INENVAS est un collectif de jeunes avec divers compétences : Data Scientists, Ingénieurs environnementaux, stratèges en RSE, Développeurs, Agronomes, etc. Ensemble, nous combinons rigueur scientifique et innovation technologique pour répondre aux défis du développement durable.
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6 text-left">
+                    INENVAS est un collectif de jeunes avec divers compétences : Data Scientists, Ingénieurs environnementaux, stratèges en RSE, Développeurs, Agronomes, etc. <br>
+                    Ensemble, nous combinons rigueur scientifique et innovation technologique pour répondre aux défis du développement durable.
                     </p>
-                    <p class="text-slate-600 leading-relaxed mb-8">
+                    <p class="text-slate-600 leading-relaxed mb-6 text-left">
                     Préoccupés par les effets du changement climatique, nous croyons que la donnée, le numérique et le facteur humain sont des leviers essentiels pour répondre aux défis écologiques. Dans cette perspective, nous concevons des outils et menons des actions concrètes pour accompagner et être au service des agriculteurs, des territoires et des entreprises dans leurs démarches de transition écologique.
                     </p>
                     <a href="#contact" class="inline-block bg-emerald-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Rejoindre notre démarche</a>
@@ -81,7 +85,7 @@
                         <h4 class="font-bold text-slate-800 mb-2">Data Scientists</h4>
                         <p class="text-sm text-slate-500">Modélisation, analyse et valorisation des données environnementales.</p>
                     </div>
-                    <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition mt-6">
+                    <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
                             <i class="fa-solid fa-leaf text-xl"></i>
                         </div>
@@ -95,7 +99,7 @@
                         <h4 class="font-bold text-slate-800 mb-2">Stratèges RSE</h4>
                         <p class="text-sm text-slate-500">Accompagnement stratégique et transformation des organisations.</p>
                     </div>
-                    <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition mt-6">
+                    <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition">
                         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
                             <i class="fa-solid fa-code text-xl"></i>
                         </div>
@@ -110,10 +114,10 @@
     <!-- NOS MISSIONS -->
     <section id="missions" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="mb-16">
                 <h2 class="text-3xl font-bold text-slate-900">Nos Missions</h2>
-                <div class="h-1 w-20 bg-emerald-500 mx-auto mt-4"></div>
-                <p class="mt-6 text-slate-600 max-w-3xl mx-auto text-lg">
+                <div class="h-0.5 w-full bg-emerald-500 mt-4"></div>
+                <p class="mt-6 text-slate-600 max-w-3xl text-lg">
                     Inenvas agit à l'intersection de l'expertise environnementale et de l'innovation numérique pour mener, développer et promouvoir des actions concrètes en faveur de la transition écologique et du développement durable.
                 </p>
             </div>
@@ -214,6 +218,6 @@
             </div>
             
             <div class="border-t border-slate-100 pt-10 text-center text-slate-400 text-sm">
-                <p>&copy; 2026 Inenvas - Association d'Int
+                <p>&copy; 2026 Inenvas - Association Intelligence Environnementale
 
 
