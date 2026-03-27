@@ -189,13 +189,13 @@
         </div>
     </section>
 
-    <footer id="contact" class="border-t border-slate-200 pt-16 pb-8 relative" style="background-image: url('image-bp.jpg'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 bg-white opacity-90"></div>
-        <div class="relative z-10">
+<footer id="contact" class="border-t border-slate-200 pt-16 pb-8 relative" style="background-image: url('image-bp.jpg'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-white opacity-90"></div>
+    <div class="relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div>
             <div class="grid md:grid-cols-3 gap-12 mb-12">
+
                 <div class="col-span-2">
                     <a href="#accueil" class="flex items-center gap-2 mb-6">
                         <div class="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center text-white font-bold">IE</div>
@@ -209,28 +209,53 @@
                 <div>
                     <h4 class="font-bold mb-4 text-slate-900 text-lg">Siège Social :</h4>
                     <div class="h-0.5 w-full bg-emerald-500 mb-4"></div>
-                    <p class="text-slate-600 leading-relaxed">
-                         11 Allée des Roitelets<br>
-                         44100 Nantes<br>
-                         France
+                    <p class="text-slate-600 leading-relaxed mb-8">
+                        11 Allée des Roitelets<br>
+                        44100 Nantes<br>
+                        France
                     </p>
-                </div>
-                <div>
+
                     <h4 class="font-bold mb-4 text-slate-900 text-lg">Contact :</h4>
                     <div class="h-0.5 w-full bg-emerald-500 mb-4"></div>
-                    <p class="text-slate-600">
-                         <i class="fa-solid fa-envelope mr-2 text-emerald-600"></i>
-                         <a href="mailto:contact@inenvas.fr" class="hover:text-emerald-600 transition">contact@inenvas.fr</a>  
+                    <p class="text-slate-600 mb-4">
+                        <i class="fa-solid fa-envelope mr-2 text-emerald-600"></i>
+                        <a href="mailto:contact@inenvas.fr" class="hover:text-emerald-600 transition">contact@inenvas.fr</a>
                     </p>
-                    <div class="flex gap-4">                   
-                         <a href="https://www.linkedin.com/company/inenvas-association-intelligence-environnementale/?viewAsMember=true" class="w-10 h-10 rounded-md bg-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
-                         <a href="#" class="w-10 h-10 rounded-md bg-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/company/inenvas-association-intelligence-environnementale/?viewAsMember=true" target="_blank" class="w-10 h-10 rounded-md bg-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-md bg-slate-200 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
+                 <div>
+                    <h4 class="font-bold mb-4 text-slate-900 text-lg">Nous écrire :</h4>
+                    <div class="h-0.5 w-full bg-emerald-500 mb-4"></div>
+
+                    <form action="https://formsubmit.co/contact@inenvas.fr" method="POST" class="space-y-3">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://inenvas.fr/#contact">
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <input type="text" name="nom" placeholder="Nom" required
+                                class="w-full px-4 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-emerald-500 bg-white">
+                            <input type="text" name="prenom" placeholder="Prénom" required
+                                class="w-full px-4 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-emerald-500 bg-white">
+                        </div>
+
+                        <input type="email" name="email" placeholder="Adresse email" required
+                            class="w-full px-4 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-emerald-500 bg-white">
+
+                        <textarea name="message" placeholder="Votre message..." rows="4" required
+                            class="w-full px-4 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-emerald-500 bg-white resize-none"></textarea>
+
+                        <button type="submit" class="w-full py-2 text-white font-bold rounded-md transition" style="background-color: #06589b;">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
             </div>
 
-        </div>
-            <div class="border-t border-slate-200 pt-8 text-center text-slate-400 text-sm">
+                        <div class="border-t border-slate-200 pt-8 text-center text-slate-400 text-sm">
                 <p>&copy; 2026 Inenvas - Association Intelligence Environnementale</p>
             </div>
 
