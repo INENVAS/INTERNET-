@@ -33,7 +33,7 @@
                     <a href="#accueil" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Accueil</a>
                     <a href="#qui-sommes-nous" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Qui sommes-nous ?</a>
                     <a href="#missions" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Nos Missions</a>
-                    <a href="#expertises" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Expertises</a>
+                    <a href="#expertises" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Engagements</a>
                     <a href="#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color: #06589b;">Nous contacter</a>
                 </div>
             </div>
@@ -162,32 +162,107 @@
     </section>
 
     <!-- EXPERTISES -->
-    <section id="expertises" class="py-20 bg-slate-900 text-white overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6 italic">Pourquoi l'Intelligence Environnementale ?</h2>
-                    <p class="text-slate-400 mb-8 text-lg">
-                        Parce que la complexité des défis environnementaux et sociétaux nécessite une approche systémique, ancrée dans la donnée et l'analyse. Nous transformons les contraintes du développement durable en leviers de performance et d'innovation pour vos organisations.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                            <span>Diagnostic environnemental, analyse des impacts et évaluation des risques.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                            <span>Conception de stratégies et de feuilles de route pour la transition écologique.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
-                            <span>Développement d'outils numériques et de méthodes d'aide à la décision.</span>
-                        </li>
-                    </ul>
+   <section id="expertises" class="py-20 bg-slate-900 text-white overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-16">
+
+            <!-- COLONNE GAUCHE : Pourquoi l'Intelligence Environnementale -->
+            <div class="lg:w-1/2">
+                <h2 class="text-3xl font-bold mb-6 italic">Pourquoi l'Intelligence Environnementale ?</h2>
+                <p class="text-slate-400 mb-8 text-base leading-snug" style="font-family: 'Georgia';">
+                    Face à la complexité des enjeux environnementaux et sociétaux, avec les contraintes du développement durable (la réduction des émissions ou la préservation de la biodiversité), ainsi que la résilience des systèmes de production agricole et alimentaire etc., l'intelligence environnementale est l'approche stratégique systémique combinant technologies numériques et exploitation massive des données (climat, sols, cultures, pratiques...). Elle permet de faire des choix responsables, favorisant une gestion durable des ressources, une adaptation et une résilience des systèmes de production face aux effets du changement climatique.
+                </p>
+             <p class="text-white font-bold text-lg mb-4">INENVAS, se met à votre service pour :</p>
+
+    <!-- CARTE 1 -->
+    <div class="mb-3">
+        <button onclick="toggleCard(1)" class="w-full flex items-center justify-between p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group" id="btn-1">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
                 </div>
+                <span class="font-bold text-white">Diagnostic environnemental</span>
+            </div>
+            <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform" id="icon-1"></i>
+        </button>
+        <div class="hidden px-4 py-3 bg-slate-700 rounded-b-xl border border-t-0 border-slate-600 text-slate-300 text-sm" id="card-1">
+            Analyse des impacts environnementaux, évaluation des risques climatiques et identification des leviers d'amélioration pour votre organisation.
+        </div>
+    </div>
+
+    <!-- CARTE 2 -->
+    <div class="mb-3">
+        <button onclick="toggleCard(2)" class="w-full flex items-center justify-between p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group" id="btn-2">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <span class="font-bold text-white">Stratégies & feuilles de route</span>
+            </div>
+            <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform" id="icon-2"></i>
+        </button>
+        <div class="hidden px-4 py-3 bg-slate-700 rounded-b-xl border border-t-0 border-slate-600 text-slate-300 text-sm" id="card-2">
+            Conception de stratégies sur mesure et de feuilles de route opérationnelles pour accompagner votre transition écologique à court, moyen et long terme.
+        </div>
+    </div>
+
+    <!-- CARTE 3 -->
+    <div class="mb-3">
+        <button onclick="toggleCard(3)" class="w-full flex items-center justify-between p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group" id="btn-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <span class="font-bold text-white">Outils numériques & aide à la décision</span>
+            </div>
+            <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform" id="icon-3"></i>
+        </button>
+        <div class="hidden px-4 py-3 bg-slate-700 rounded-b-xl border border-t-0 border-slate-600 text-slate-300 text-sm" id="card-3">
+            Développement d'outils numériques innovants et de méthodes d'aide à la décision pour piloter votre performance environnementale en temps réel.
+        </div>
+    </div>
+
+</div>
+
+            <!-- COLONNE DROITE : Nos Actions -->
+            <div class="lg:w-1/2">
+                <h2 class="text-3xl font-bold mb-2">Nos Actions</h2>
+                <div class="h-0.5 w-full bg-emerald-500 mb-6"></div>
+
+                <!-- ACTION 1 -->
+                <div class="p-5 bg-slate-800 rounded-xl mb-4 border border-slate-700 hover:border-emerald-500 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs bg-emerald-500 text-white px-2 py-1 rounded-full font-bold">En cours</span>
+                        <span class="text-slate-400 text-sm">2026</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-1">Titre de l'action 1</h4>
+                    <p class="text-slate-400 text-sm">Description courte de l'action menée par Inenvas.</p>
+                </div>
+
+                <!-- ACTION 2 -->
+                <div class="p-5 bg-slate-800 rounded-xl mb-4 border border-slate-700 hover:border-emerald-500 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-bold">Projet</span>
+                        <span class="text-slate-400 text-sm">2026</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-1">Titre de l'action 2</h4>
+                    <p class="text-slate-400 text-sm">Description courte de l'action menée par Inenvas.</p>
+                </div>
+
+                <!-- ACTION 3 -->
+                <div class="p-5 bg-slate-800 rounded-xl mb-4 border border-slate-700 hover:border-emerald-500 transition">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs bg-slate-500 text-white px-2 py-1 rounded-full font-bold">Réalisé</span>
+                        <span class="text-slate-400 text-sm">2025</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-1">Titre de l'action 3</h4>
+                    <p class="text-slate-400 text-sm">Description courte de l'action menée par Inenvas.</p>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <footer id="contact" class="border-t border-slate-200 pt-16 pb-8 relative" style="background-image: url('image-bp.jpg'); background-size: cover; background-position: center;">
     <div class="absolute inset-0 bg-white opacity-90"></div>
@@ -246,7 +321,12 @@
 
                         <textarea name="message" placeholder="Votre message..." rows="4" required
                             class="w-full px-4 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-emerald-500 bg-white resize-none"></textarea>
-
+                        <!-- CONSENTEMENT RGPD -->
+                        <label class="flex items-start gap-2 cursor-pointer text-slate-300 text-xs">
+                            <input type="checkbox" required class="accent-emerald-600 mt-0.5">
+                            <span>J'accepte que ces informations soient traitées dans le cadre de ma demande *</span>
+                        </label>
+                        <p class="text-red-400 text-xs">* Champs requis</p>
                         <button type="submit" class="w-full py-2 text-white font-bold rounded-md transition" style="background-color: #06589b;">
                             Envoyer le message
                         </button>
@@ -262,3 +342,24 @@
         </div>
     </div>
 </footer>
+<script>
+           function toggleCard(id) {
+               const card = document.getElementById('card-' + id);
+               const icon = document.getElementById('icon-' + id);
+               const btn = document.getElementById('btn-' + id);
+               if (card.classList.contains('hidden')) {
+                   card.classList.remove('hidden');
+                   icon.style.transform = 'rotate(180deg)';
+                   btn.classList.add('border-emerald-500', 'bg-slate-700');
+               } else {
+                   card.classList.add('hidden');
+                   icon.style.transform = 'rotate(0deg)';
+                   btn.classList.remove('border-emerald-500', 'bg-slate-700');
+               }
+           }
+           const navLinks = document.querySelectorAll('nav a[href^="#"]');
+           navLinks.forEach(link => { link.addEventListener('click', function() { navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
+       </script>
+
+</body>
+</html>
