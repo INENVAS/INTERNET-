@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Inenvas|Association Intelligence Environnementale</title>
+   <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
     @font-face { font-family: 'Aptos'; src: local('Aptos'); }
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Aptos', 'Inter', sans-serif; }
     nav { font-family: 'Aptos', 'Inter', sans-serif; }
     .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
     .eco-gradient { background: linear-gradient(135deg, #065f46 0%, #064e3b 100%); }
@@ -246,7 +247,7 @@
                                 <span class="text-slate-400 text-sm">2026</span>
                             </div>
                             <h4 class="font-bold text-white mb-1">PaRisk - Parcelle Risque</h4>
-                            <p class="text-slate-400 text-sm">Outil numérique de diagnostic des risques climatiques et environnementaux d'une parcelle agricole (inondation, sécheresse, changement climatique). S'adresse aux agriculteurs, banques, assurances et conseillers agricoles.</p>
+                            <p class="text-slate-400 text-sm">Un outil numérique conçu pour aider à diagnostiquer les risques climatiques et environnementaux d'une parcelle agricole, notamment les risques d'inondation, de sécheresse et les effets du changement climatique. Il répond au besoin croissant de disposer d'informations simples, localisées et fiables pour mieux anticiper les impacts sur les cultures. La solution s'adresse principalement aux agriculteurs, mais aussi aux banques et assurances, qui ont besoin d'évaluer les risques liés aux exploitations, ainsi qu'aux techniciens et conseillers agricoles, qui peuvent l'utiliser comme support de sensibilisation, de formation et d'accompagnement.</p>
                         </div>
 
                         <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
@@ -255,9 +256,9 @@
                                 <span class="text-slate-400 text-sm">2026</span>
                             </div>
                             <h4 class="font-bold text-white mb-1">Discussion avec des jeunes engagés pour le climat</h4>
-                            <p class="text-slate-400 text-sm">Échange autour de la place des outils numériques, notamment l'IA, dans les approches de changement climatique.<br><br>
+                            <p class="text-slate-400 text-sm">Échange autour de la place des outils numériques, notamment l'IA, dans les approches de recherche de solutions au changement climatique.<br><br>
                             <span class="text-emerald-400 italic">« Malgré son impact énergétique et les controverses associées, l'IA peut-elle contribuer de manière significative à la préservation de notre planète ? »</span><br><br>
-                            <span class="text-slate-500">📅 Date : Non fixée — <a href="#contact" class="text-emerald-400 hover:underline">contactez-nous</a> si intéressé.</span>
+                            <span class="text-slate-500">📅 Date : Non fixée - Revenez plus tard ou <a href="#contact" class="text-emerald-400 hover:underline">contactez-nous</a> si vous êtes intéressé.</span>
                             </p>
                         </div>
 
@@ -362,9 +363,11 @@
 <script>
     function toggleCard(id) {
         [1, 2, 3].forEach(i => {
-            document.getElementById('card-' + i).classList.add('hidden');
-            document.getElementById('icon-' + i).style.transform = 'rotate(0deg)';
-            document.getElementById('btn-' + i).classList.remove('border-emerald-500', 'bg-slate-700');
+            if (i !== id) {
+                document.getElementById('card-' + i).classList.add('hidden');
+                document.getElementById('icon-' + i).style.transform = 'rotate(0deg)';
+                document.getElementById('btn-' + i).classList.remove('border-emerald-500', 'bg-slate-700');
+            }
         });
         const card = document.getElementById('card-' + id);
         const icon = document.getElementById('icon-' + id);
@@ -373,16 +376,22 @@
             card.classList.remove('hidden');
             icon.style.transform = 'rotate(180deg)';
             btn.classList.add('border-emerald-500', 'bg-slate-700');
+        } else {
+            card.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+            btn.classList.remove('border-emerald-500', 'bg-slate-700');
         }
     }
 
     function scrollActions(direction) {
         const scroll = document.getElementById('actions-scroll');
+        const container = document.getElementById('actions-container');
         scroll.style.animation = 'none';
-        document.getElementById('actions-container').scrollBy({
-            left: direction * 300,
-            behavior: 'smooth'
-        });
+        container.scrollBy({ left: direction * 300, behavior: 'smooth' });
+        clearTimeout(window.restartScroll);
+        window.restartScroll = setTimeout(() => {
+            scroll.style.animation = 'scroll 12s linear infinite';
+        }, 3000);
     }
 
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
