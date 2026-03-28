@@ -164,66 +164,61 @@
         </div>
     </section>
 
-    <!-- EXPERTISES -->
-   <section id="expertises" class="py-20 bg-slate-900 text-white overflow-hidden relative">
+  <!-- EXPERTISES -->
+<section id="expertises" class="py-20 bg-slate-900 text-white overflow-hidden relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="flex flex-col lg:flex-row gap-16">
 
-            <!-- COLONNE GAUCHE : Pourquoi l'Intelligence Environnementale -->
+            <!-- COLONNE GAUCHE -->
             <div class="lg:w-1/2">
                 <h2 class="text-3xl font-bold mb-6 italic">Pourquoi l'Intelligence Environnementale ?</h2>
                 <p class="text-slate-400 mb-8 text-base leading-snug" style="font-family: 'Aptos';">
                     Face à la complexité des enjeux environnementaux et sociétaux, avec les contraintes du développement durable (la réduction des émissions ou la préservation de la biodiversité), ainsi que la résilience des systèmes de production agricole et alimentaire etc., l'intelligence environnementale est l'approche stratégique systémique combinant technologies numériques et exploitation massive des données (climat, sols, cultures, pratiques...). Elle permet de faire des choix responsables, favorisant une gestion durable des ressources, une adaptation et une résilience des systèmes de production face aux effets du changement climatique.
                 </p>
-             <p class="text-white font-bold text-lg mb-4">INENVAS s'engage avec vous pour vos projets :</p>
+                <p class="text-white font-bold text-lg mb-4">INENVAS s'engage avec vous pour vos projets :</p>
 
-            <!-- GRILLE 3 CARTES CÔTE À CÔTE -->
-            <div class="grid grid-cols-3 gap-3 mb-3">
-
-                <!-- CARTE 1 -->
-                <div>
-                    <button onclick="toggleCard(1)" class="w-full flex flex-col items-center justify-center p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group text-center" id="btn-1">
-                        <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition mb-2">
-                            <i class="fa-solid fa-earth-europe"></i>
-                        </div>
-                        <span class="font-bold text-white text-sm">Diagnostic environnemental</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-500 mt-2" id="icon-1"></i>
-                    </button>
+                <!-- GRILLE 3 CARTES -->
+                <div class="grid grid-cols-3 gap-3 mb-3">
+                    <div>
+                        <button onclick="toggleCard(1)" class="w-full flex flex-col items-center justify-center p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group text-center" id="btn-1">
+                            <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition mb-2">
+                                <i class="fa-solid fa-earth-europe"></i>
+                            </div>
+                            <span class="font-bold text-white text-sm">Diagnostic environnemental</span>
+                            <i class="fa-solid fa-chevron-down text-emerald-500 mt-2" id="icon-1"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button onclick="toggleCard(2)" class="w-full flex flex-col items-center justify-center p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group text-center" id="btn-2">
+                            <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition mb-2">
+                                <i class="fa-solid fa-route"></i>
+                            </div>
+                            <span class="font-bold text-white text-sm">Stratégies & feuilles de route</span>
+                            <i class="fa-solid fa-chevron-down text-emerald-500 mt-2" id="icon-2"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button onclick="toggleCard(3)" class="w-full flex flex-col items-center justify-center p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group text-center" id="btn-3">
+                            <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition mb-2">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <span class="font-bold text-white text-sm">Outils numériques & aide à la décision</span>
+                            <i class="fa-solid fa-chevron-down text-emerald-500 mt-2" id="icon-3"></i>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- CARTE 2 -->
-                <div>
-                    <button onclick="toggleCard(2)" class="w-full flex flex-col items-center justify-center p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group text-center" id="btn-2">
-                        <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition mb-2">
-                            <i class="fa-solid fa-route"></i>
-                        </div>
-                        <span class="font-bold text-white text-sm">Stratégies & feuilles de route</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-500 mt-2" id="icon-2"></i>
-                    </button>
+                <!-- ZONES DE TEXTE -->
+                <div class="hidden px-4 py-3 bg-slate-700 rounded-xl border border-slate-600 text-slate-300 text-sm mb-3" id="card-1">
+                    Analyse des impacts environnementaux, évaluation des risques climatiques et identification des leviers d'amélioration pour votre organisation.
+                </div>
+                <div class="hidden px-4 py-3 bg-slate-700 rounded-xl border border-slate-600 text-slate-300 text-sm mb-3" id="card-2">
+                    Conception de stratégies sur mesure et de feuilles de route opérationnelles pour accompagner votre transition écologique à court, moyen et long terme.
+                </div>
+                <div class="hidden px-4 py-3 bg-slate-700 rounded-xl border border-slate-600 text-slate-300 text-sm mb-3" id="card-3">
+                    Développement d'outils numériques innovants et de méthodes d'aide à la décision pour piloter votre performance environnementale en temps réel.
                 </div>
 
-                <!-- CARTE 3 -->
-                <div>
-                    <button onclick="toggleCard(3)" class="w-full flex flex-col items-center justify-center p-4 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 hover:bg-slate-700 transition group text-center" id="btn-3">
-                        <div class="w-10 h-10 bg-emerald-900 text-emerald-400 rounded-lg flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition mb-2">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <span class="font-bold text-white text-sm">Outils numériques & aide à la décision</span>
-                        <i class="fa-solid fa-chevron-down text-emerald-500 mt-2" id="icon-3"></i>
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- ZONES DE TEXTE EN DESSOUS -->
-            <div class="hidden px-4 py-3 bg-slate-700 rounded-xl border border-slate-600 text-slate-300 text-sm mb-3" id="card-1">
-                Analyse des impacts environnementaux, évaluation des risques climatiques et identification des leviers d'amélioration pour votre organisation.
-            </div>
-            <div class="hidden px-4 py-3 bg-slate-700 rounded-xl border border-slate-600 text-slate-300 text-sm mb-3" id="card-2">
-                Conception de stratégies sur mesure et de feuilles de route opérationnelles pour accompagner votre transition écologique à court, moyen et long terme.
-            </div>
-            <div class="hidden px-4 py-3 bg-slate-700 rounded-xl border border-slate-600 text-slate-300 text-sm mb-3" id="card-3">
-                Développement d'outils numériques innovants et de méthodes d'aide à la décision pour piloter votre performance environnementale en temps réel.
             </div>
 
             <!-- COLONNE DROITE : Nos Actions -->
@@ -231,48 +226,27 @@
                 <h2 class="text-3xl font-bold mb-2">Nos Actions</h2>
                 <div class="h-0.5 w-full bg-emerald-500 mb-6"></div>
 
+                <!-- FLÈCHES DE NAVIGATION -->
+                <div class="flex gap-3 mb-4">
+                    <button onclick="scrollActions(-1)" class="w-9 h-9 bg-slate-700 hover:bg-emerald-600 rounded-full flex items-center justify-center transition">
+                        <i class="fa-solid fa-chevron-left text-white text-sm"></i>
+                    </button>
+                    <button onclick="scrollActions(1)" class="w-9 h-9 bg-slate-700 hover:bg-emerald-600 rounded-full flex items-center justify-center transition">
+                        <i class="fa-solid fa-chevron-right text-white text-sm"></i>
+                    </button>
+                </div>
+
                 <!-- ACTIONS DÉFILANTES -->
-                <div class="overflow-hidden relative">
+                <div class="overflow-hidden relative" id="actions-container">
                     <div class="flex gap-4 animate-scroll" id="actions-scroll">
 
-                        <!-- ACTION 1 -->
-                        <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="text-xs bg-emerald-500 text-white px-2 py-1 rounded-full font-bold">En cours</span>
-                                <span class="text-slate-400 text-sm">2026</span>
-                            </div>
-                            <h4 class="font-bold text-white mb-1">PaRisk — Parcelle Risque</h4>
-                            <p class="text-slate-400 text-sm">Outil numérique de diagnostic des risques climatiques et environnementaux d'une parcelle agricole (inondation, sécheresse, changement climatique). S'adresse aux agriculteurs, banques, assurances et conseillers agricoles.</p>
-                        </div>
-
-                        <!-- ACTION 2 -->
-                        <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-bold">À venir</span>
-                                <span class="text-slate-400 text-sm">2026</span>
-                            </div>
-                            <h4 class="font-bold text-white mb-1">Titre de l'action 2</h4>
-                            <p class="text-slate-400 text-sm">Description courte de l'action menée par Inenvas.</p>
-                        </div>
-
-                        <!-- ACTION 3 -->
-                        <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="text-xs bg-slate-500 text-white px-2 py-1 rounded-full font-bold">Réalisé</span>
-                                <span class="text-slate-400 text-sm">2025</span>
-                            </div>
-                            <h4 class="font-bold text-white mb-1">Titre de l'action 3</h4>
-                            <p class="text-slate-400 text-sm">Description courte de l'action menée par Inenvas.</p>
-                        </div>
-
-                        <!-- COPIES pour boucle infinie -->
                         <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-xs bg-emerald-500 text-white px-2 py-1 rounded-full font-bold">En cours</span>
                                 <span class="text-slate-400 text-sm">2026</span>
                             </div>
                             <h4 class="font-bold text-white mb-1">PaRisk - Parcelle Risque</h4>
-                            <p class="text-slate-400 text-sm">Outil numérique de diagnostic des risques climatiques et environnementaux d'une parcelle agricole.</p>
+                            <p class="text-slate-400 text-sm">Outil numérique de diagnostic des risques climatiques et environnementaux d'une parcelle agricole (inondation, sécheresse, changement climatique). S'adresse aux agriculteurs, banques, assurances et conseillers agricoles.</p>
                         </div>
 
                         <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
@@ -283,27 +257,28 @@
                             <h4 class="font-bold text-white mb-1">Discussion avec des jeunes engagés pour le climat</h4>
                             <p class="text-slate-400 text-sm">Échange autour de la place des outils numériques, notamment l'IA, dans les approches de changement climatique.<br><br>
                             <span class="text-emerald-400 italic">« Malgré son impact énergétique et les controverses associées, l'IA peut-elle contribuer de manière significative à la préservation de notre planète ? »</span><br><br>
-                            <span class="text-slate-500">📅 Date : Non fixée - Revenez plus tard ou <a href="#contact" class="text-emerald-400 hover:underline">contactez-nous</a> si vous êtes intéressé.</span>
+                            <span class="text-slate-500">📅 Date : Non fixée — <a href="#contact" class="text-emerald-400 hover:underline">contactez-nous</a> si intéressé.</span>
                             </p>
                         </div>
 
                         <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex-shrink-0 w-72">
                             <div class="flex items-center gap-3 mb-2">
-                                <span class="text-xs bg-slate-500 text-white px-2 py-1 rounded-full font-bold">À venir</span>
+                                <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-bold">À venir</span>
                                 <span class="text-slate-400 text-sm">2026</span>
                             </div>
-                            <h4 class="font-bold text-white mb-1">Fresque du Climat — Atelier de sensibilisation</h4>
-                            <p class="text-slate-400 text-sm">Animation d'ateliers collaboratifs pour comprendre les mécanismes du changement climatique et identifier les leviers d'action collectifs. Destiné aux entreprises, associations et établissements scolaires.<br><br>
-                            <span class="text-slate-500">📅 Date : Non fixée — <a href="#contact" class="text-emerald-400 hover:underline">Contactez-nous</a> pour organiser un atelier.</span>
+                            <h4 class="font-bold text-white mb-1">Fresque du Climat - Atelier de sensibilisation</h4>
+                            <p class="text-slate-400 text-sm">Animation d'ateliers collaboratifs pour comprendre les mécanismes du changement climatique. Destiné aux entreprises, associations et établissements scolaires.<br><br>
+                            <span class="text-slate-500">📅 Date : Non fixée - <a href="#contact" class="text-emerald-400 hover:underline">Contactez-nous</a> pour organiser un atelier.</span>
                             </p>
                         </div>
 
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</section>
 </section>
 
 <footer id="contact" class="border-t border-slate-200 pt-16 pb-8 relative" style="background-image: url('image-bp.jpg'); background-size: cover; background-position: center;">
@@ -385,23 +360,34 @@
     </div>
 </footer>
 <script>
-           function toggleCard(id) {
-               const card = document.getElementById('card-' + id);
-               const icon = document.getElementById('icon-' + id);
-               const btn = document.getElementById('btn-' + id);
-               if (card.classList.contains('hidden')) {
-                   card.classList.remove('hidden');
-                   icon.style.transform = 'rotate(180deg)';
-                   btn.classList.add('border-emerald-500', 'bg-slate-700');
-               } else {
-                   card.classList.add('hidden');
-                   icon.style.transform = 'rotate(0deg)';
-                   btn.classList.remove('border-emerald-500', 'bg-slate-700');
-               }
-           }
-           const navLinks = document.querySelectorAll('nav a[href^="#"]');
-           navLinks.forEach(link => { link.addEventListener('click', function() { navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
-       </script>
+    function toggleCard(id) {
+        [1, 2, 3].forEach(i => {
+            document.getElementById('card-' + i).classList.add('hidden');
+            document.getElementById('icon-' + i).style.transform = 'rotate(0deg)';
+            document.getElementById('btn-' + i).classList.remove('border-emerald-500', 'bg-slate-700');
+        });
+        const card = document.getElementById('card-' + id);
+        const icon = document.getElementById('icon-' + id);
+        const btn = document.getElementById('btn-' + id);
+        if (card.classList.contains('hidden')) {
+            card.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+            btn.classList.add('border-emerald-500', 'bg-slate-700');
+        }
+    }
+
+    function scrollActions(direction) {
+        const scroll = document.getElementById('actions-scroll');
+        scroll.style.animation = 'none';
+        document.getElementById('actions-container').scrollBy({
+            left: direction * 300,
+            behavior: 'smooth'
+        });
+    }
+
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    navLinks.forEach(link => { link.addEventListener('click', function() { navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
+</script>
 
 </body>
 </html>
