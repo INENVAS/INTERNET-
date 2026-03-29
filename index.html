@@ -14,7 +14,7 @@
     nav { font-family: 'Aptos', 'Inter', sans-serif; }
     .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
     .eco-gradient { background: linear-gradient(135deg, #065f46 0%, #064e3b 100%); }
-    nav a.active { background-color: #0d9488; color: white; }
+    nav a.active { background-color: #0d9488; color: white; height: 5rem; display: flex; align-items: center; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-scroll { animation: scroll 12s linear infinite; }
     .animate-scroll:hover { animation-play-state: paused; }
@@ -33,11 +33,11 @@
                         <span>Environnementale</span>
                     </div>
                 </a>
-                <div class="hidden md:flex space-x-2 font-bold items-center" style="font-family: 'Aptos', 'Inter', sans-serif;">
-                    <a href="#accueil" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Accueil</a>
-                    <a href="#qui-sommes-nous" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Qui sommes-nous ?</a>
-                    <a href="#missions" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Nos missions</a>
-                    <a href="#nos engagements" class="px-5 py-2 hover:bg-teal-500 hover:text-white transition font-bold">Nos engagements</a>
+                <div class="hidden md:flex items-center" style="font-family: 'Aptos', 'Inter', sans-serif;">
+                    <a href="#accueil" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Accueil</a>
+                    <a href="#qui-sommes-nous" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Qui sommes-nous ?</a>
+                    <a href="#missions" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos Missions</a>
+                    <a href="#nos-engagements" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos ngagements</a>
                     <a href="#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color: #06589b;">Nous contacter</a>
                 </div>
             </div>
@@ -58,7 +58,7 @@
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#missions" class="bg-white text-emerald-900 px-8 py-3 rounded-lg font-bold hover:bg-emerald-50 transition transform hover:-translate-y-1">Découvrir nos solutions</a>
-                <a href="#nos engagements" class="border border-emerald-400 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Nos domaines d'action</a>
+                <a href="#nos-engagements" class="border border-emerald-400 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Nos domaines d'action</a>
             </div>
         </div>
     </header>
@@ -166,7 +166,7 @@
     </section>
 
   <!-- EXPERTISES -->
-<section id="Nos engagements" class="py-20 bg-slate-900 text-white overflow-hidden relative">
+<section id="nos-engagements" class="py-20 bg-slate-900 text-white overflow-hidden relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="flex flex-col lg:flex-row gap-16">
 
@@ -246,7 +246,7 @@
                                 <span class="text-xs bg-emerald-500 text-white px-2 py-1 rounded-full font-bold">En cours</span>
                                 <span class="text-slate-400 text-sm">2026</span>
                             </div>
-                            <h4 class="font-bold text-white mb-1">PaRisk — Parcelle Risque</h4>
+                            <h4 class="font-bold text-white mb-1">PaRisk-Parcelle Risque</h4>
                             <p class="text-slate-400 text-sm mb-2">PaRisk est un outil de suivi et de contrôle des données climatiques et des risques naturels à l'échelle des exploitations agricoles.</p>
                             <p class="text-slate-400 text-sm mb-2">Il réalise des analyses des données climatiques et environnementales et propose des pistes de solutions concrètes, répondant ainsi au besoin croissant d'informations simples, localisées et fiables pour mieux anticiper les impacts sur les cultures.</p>
                             <p class="text-slate-400 text-sm">PaRisk s'adresse à différents types d'utilisateurs : notamment les agriculteurs et leurs groupements, pour qui l'outil constitue une aide à la décision au quotidien face aux aléas climatiques, et bien d'autres acteurs.</p>
@@ -397,7 +397,15 @@
     }
 
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    navLinks.forEach(link => { link.addEventListener('click', function() { navLinks.forEach(l => l.classList.remove('active')); this.classList.add('active'); }); });
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+        link.addEventListener('mouseleave', function() {
+            this.classList.remove('active');
+        });
+    });
 </script>
 
 </body>
