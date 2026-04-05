@@ -2,14 +2,38 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:site_name" content="Inenvas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Inenvas|Association Intelligence Environnementale</title>
    <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <!-- Schema.org -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Inenvas",
+      "url": "https://www.inenvas.fr",
+      "logo": "https://www.inenvas.fr/logo.png" 
+    }
+</script>
+    <!-- Favicon standard -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- SEO Google -->
+    <meta name="description" content="INENVAS - Association Intelligence Environnementale. Outils numériques, conseil stratégique et formation pour la transition écologique.">
+
+    <!-- Open Graph (réseaux sociaux + Google) -->
+    <meta property="og:title" content="Inenvas | Association Intelligence Environnementale">
+    <meta property="og:description" content="Nous combinons rigueur scientifique et innovation technologique pour répondre aux défis du développement durable.">
+    <meta property="og:image" content="https://www.inenvas.fr/logo.png">
+    <meta property="og:url" content="https://www.inenvas.fr">
+    <meta property="og:type" content="website">
 <style>
-    @font-face { font-family: 'Aptos'; src: local('Aptos'); }
     body { font-family: 'Poppins', sans-serif; }
     nav  { font-family: 'Poppins', sans-serif; }
     .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
@@ -17,7 +41,8 @@
     nav a.active { background-color: #0d9488; color: white; height: 5rem; display: flex; align-items: center; }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-scroll { animation: scroll 12s linear infinite; }
-    .animate-scroll:hover { animation-play-state: paused; }
+    .animate-scroll:hover { animation-play-state: paused; }    
+
 </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -72,7 +97,7 @@
            <div class="flex flex-col lg:flex-row items-start gap-16">
                 <div class="lg:w-1/2">
                     <p class="text-slate-900 leading-relaxed mb-6 text-justify">
-                    INENVAS est un collectif de jeunes avec divers compétences : les Data Scientists, les Développeurs les Ingénieurs environnement, les Agronomes et les Géographes. <br>
+                    INENVAS est un collectif de jeunes avec divers compétences : les Data Scientists, les Développeurs, les Ingénieurs environnement, les Agronomes et les Géographes. <br>
                     Ensemble, nous combinons rigueur scientifique et innovation technologique pour répondre aux défis du développement durable.
                     </p>
                     <p class="text-slate-900 leading-relaxed mb-6 text-justify">
@@ -182,7 +207,7 @@
                 <p class="text-slate-400 mb-8 text-base leading-snug text-justify">
                     Face à la complexité des enjeux environnementaux et sociétaux, avec les contraintes du développement durable <italic>(la réduction des émissions, la préservation de la biodiversité, etc.)</italic>, ainsi que la résilience des systèmes de production agricole et alimentaire etc., l'intelligence environnementale est une approche à la fois stratégique et systémique combinant technologies numériques et exploitation massive des données (climat, sols, cultures, pratiques...). Elle permet de faire des choix responsables, favorisant une gestion durable des ressources, une adaptation et une résilience des systèmes de production face aux effets du changement climatique.
                 </p>
-                <p class="text-white font-bold text-lg mb-4">INENVAS s'engage avec vous pour vos projets :</p>
+                <p class="text-emerald-400 font-bold text-lg mb-4">INENVAS s'engage avec vous pour vos projets :</p>
 
                 <!-- GRILLE 3 CARTES -->
                 <div class="grid grid-cols-3 gap-3 mb-3">
