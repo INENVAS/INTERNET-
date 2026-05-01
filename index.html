@@ -82,7 +82,21 @@
                 Nous concevons des outils et accompagnons les organisations pour mettre en place des stratégies favorisant des modèles durables et responsables.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="RiskAgri" target="_blank" class="bg-white text-emerald-900 px-8 py-3 rounded-lg font-bold hover:bg-emerald-50 transition transform hover:-translate-y-1">Découvrir nos solutions</a>
+                <div class="relative inline-block" id="solutions-dropdown">
+                    <button onclick="toggleDropdown()" class="bg-white text-emerald-900 px-8 py-3 rounded-lg font-bold hover:bg-emerald-50 transition transform hover:-translate-y-1 flex items-center gap-2">
+                        Découvrir nos solutions
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform" id="dropdown-icon"></i>
+                    </button>
+                    <div id="dropdown-menu" class="hidden absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50">
+                        <a href="RiskAgri" target="_blank" class="flex items-center gap-3 px-5 py-3 text-slate-800 font-semibold hover:bg-emerald-50 hover:text-emerald-700 transition text-sm">
+                            <i class="fa-solid fa-seedling text-emerald-500"></i> RiskAgri
+                        </a>
+                        <div class="flex items-center gap-3 px-5 py-3 text-slate-400 font-semibold text-sm cursor-not-allowed select-none border-t border-slate-100">
+                            <i class="fa-solid fa-certificate text-slate-300"></i> Certif
+                            <span class="ml-auto text-xs bg-slate-100 text-slate-400 px-2 py-0.5 rounded-full">Bientôt</span>
+                        </div>
+                    </div>
+                </div>
                 <a href="#nos-actions" class="border border-emerald-400 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Nos domaines d'action</a>
             </div>
         </div>
@@ -464,7 +478,20 @@
             scroll.style.animation = 'scroll 12s linear infinite';
         }, 3000);
     }
-
+    function toggleDropdown() {
+        const menu = document.getElementById('dropdown-menu');
+        const icon = document.getElementById('dropdown-icon');
+        menu.classList.toggle('hidden');
+        icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+    // Fermer si clic en dehors
+    document.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('solutions-dropdown');
+        if (dropdown && !dropdown.contains(e.target)) {
+            document.getElementById('dropdown-menu').classList.add('hidden');
+            document.getElementById('dropdown-icon').style.transform = 'rotate(0deg)';
+        }
+    });
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
