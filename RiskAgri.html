@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Solutions | Inenvas</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        nav  { font-family: 'Poppins', sans-serif; }
+        .glass { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); }
+
+        /* --- hero particles background --- */
+        .hero-bg {
+            background-color: #043d4a;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(16,185,129,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(6,95,115,0.4) 0%, transparent 50%);
+        }
+
+        /* --- card hover lift --- */
+        .card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+
+        /* --- tag badge --- */
+        .badge-en-cours { background: linear-gradient(135deg,#10b981,#059669); }
+
+        /* --- module card color accents --- */
+        .mod-alerte  { border-top: 4px solid #f59e0b; }
+        .mod-meteo   { border-top: 4px solid #60a5fa; }
+        .mod-inond   { border-top: 4px solid #3b82f6; }
+        .mod-terrain { border-top: 4px solid #8b5cf6; }
+        .mod-seche   { border-top: 4px solid #f97316; }
+        .mod-incend  { border-top: 4px solid #ef4444; }
+
+        /* --- step number circle --- */
+        .step-num {
+            width: 2.5rem; height: 2.5rem; border-radius: 50%;
+            background: linear-gradient(135deg,#10b981,#065f73);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1rem; color: white;
+            flex-shrink: 0;
+        }
+
+        /* --- scroll fade-in --- */
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- wave --- */
+        .wave-bottom { line-height: 0; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- ══════════════════════════ NAV ══════════════════════════ -->
+<nav class="fixed w-full z-50 glass border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+            <a href="/" class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo Inenvas" class="h-16 w-auto self-center" style="background-color:rgba(241,239,239,0.95);border-radius:8px;">
+                <div class="flex flex-col leading-tight font-bold text-sm self-center" style="color:#065f46;">
+                    <span>Association</span>
+                    <span>Intelligence</span>
+                    <span>Environnementale</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="/" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Accueil</a>
+                <a href="/#qui-sommes-nous" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Qui sommes-nous ?</a>
+                <a href="/#missions" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos missions</a>
+                <a href="/#nos-engagements" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos engagements</a>
+                <a href="/#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color:#06589b;">Nous contacter</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<header class="hero-bg pt-40 pb-0 text-white relative overflow-hidden">
+
+    <!-- decorative circles -->
+    <div style="position:absolute;top:-60px;right:-80px;width:400px;height:400px;border-radius:50%;background:rgba(16,185,129,0.07);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:60px;left:-100px;width:300px;height:300px;border-radius:50%;background:rgba(6,95,115,0.15);pointer-events:none;"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- breadcrumb -->
+        <p class="text-emerald-400 text-sm font-semibold mb-4 tracking-widest uppercase">
+            <a href="/" class="hover:text-white transition">Accueil</a>
+            <span class="mx-2 opacity-40">/</span>
+            Nos Solutions
+        </p>
+
+        <div class="flex flex-col lg:flex-row items-center gap-16 pb-20">
+            <!-- texte gauche -->
+            <div class="lg:w-1/2">
+                <div class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-1.5 text-emerald-300 text-sm font-semibold mb-6">
+                    <i class="fa-solid fa-seedling"></i> Développé par INENVAS
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    <span style="color:#10b981;">Risk</span><span style="color:#ffffff;">Agri</span>
+                </h1>
+                <p class="text-xl text-white/80 leading-relaxed mb-4">
+                    Application de <strong class="text-emerald-300">veille et de gestion des aléas climatiques</strong> à l'échelle des parcelles agricoles.
+                </p>
+                <p class="text-white/60 text-base leading-relaxed mb-8">
+                    Analyses basées sur la géolocalisation exacte de vos parcelles, données officielles (Météo-France, Géorisques, VigiEau, IGN RPG) en temps réel.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://riskagri.fr" target="_blank"
+                       class="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-white transition hover:-translate-y-1 shadow-lg"
+                       style="background:linear-gradient(135deg,#10b981,#059669);">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir RiskAgri
+                    </a>
+                    <a href="#fonctionnement"
+                       class="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold border border-emerald-400/50 text-emerald-300 hover:bg-emerald-500/10 transition">
+                        <i class="fa-solid fa-circle-play"></i> Voir comment ça marche
+                    </a>
+                </div>
+            </div>
+
+            <!-- mockup / stats droite -->
+            <div class="lg:w-1/2 flex flex-col gap-4">
+                <!-- 3 features clés -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="rounded-2xl p-5 text-center card-lift" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-location-dot text-emerald-400 text-lg"></i>
+                        </div>
+                        <p class="font-bold text-white text-sm">Localisation</p>
+                        <p class="text-white/50 text-xs mt-1">Géolocalisation exacte</p>
+                    </div>
+                    <div class="rounded-2xl p-5 text-center card-lift" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-database text-blue-400 text-lg"></i>
+                        </div>
+                        <p class="font-bold text-white text-sm">Données officielles</p>
+                        <p class="text-white/50 text-xs mt-1">Sources vérifiées</p>
+                    </div>
+                    <div class="rounded-2xl p-5 text-center card-lift" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-yellow-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-bolt text-yellow-400 text-lg"></i>
+                        </div>
+                        <p class="font-bold text-white text-sm">Temps réel</p>
+                        <p class="text-white/50 text-xs mt-1">Alertes & prévisions</p>
+                    </div>
+                </div>
+
+                <!-- badge statut -->
+                <div class="rounded-2xl p-5 flex items-center gap-4" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);">
+                    <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></div>
+                    <div>
+                        <p class="font-bold text-emerald-300 text-sm">Application disponible en ligne</p>
+                        <p class="text-white/60 text-xs">riskagri.fr — Web & Mobile</p>
+                    </div>
+                    <a href="https://riskagri.fr" target="_blank" class="ml-auto text-emerald-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                        Accéder →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- vague bas hero -->
+    <div class="wave-bottom">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:70px;">
+            <path d="M0,35 C300,70 900,0 1440,40 L1440,70 L0,70 Z" fill="#f8fafc"/>
+        </svg>
+    </div>
+</header>
+
+<!-- ══════════════════════════ FONCTIONNEMENT ══════════════════════════ -->
+<section id="fonctionnement" class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-16 fade-in">
+            <h2 class="text-3xl font-bold text-slate-900">Comment utiliser RiskAgri ?</h2>
+            <div class="h-0.5 w-full bg-emerald-500 mt-4 mb-6"></div>
+            <p class="text-slate-600 max-w-2xl text-lg">En quelques étapes simples, analysez les risques climatiques de vos parcelles agricoles.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- Étape 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-lift fade-in">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Ajouter vos parcelles</h3>
+                        <p class="text-slate-500 text-sm mt-1">3 méthodes disponibles</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold flex-shrink-0">A</span>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Dessiner manuellement</p>
+                            <p class="text-slate-500 text-xs">Tracer un polygone directement sur la carte</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold flex-shrink-0">B</span>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Importer un fichier</p>
+                            <p class="text-slate-500 text-xs">Formats acceptés : CSV, GeoJSON, Excel (XLSX)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold flex-shrink-0">C</span>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">Rechercher par commune</p>
+                            <p class="text-slate-500 text-xs">Parcelles IGN (RPG) affichées automatiquement</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 p-3 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-700 text-xs">
+                    <i class="fa-solid fa-lightbulb mr-1"></i>
+                    <strong>Conseil :</strong> créez un compte pour sauvegarder jusqu'à 10 parcelles et les retrouver à chaque visite.
+                </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-lift fade-in">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Lancer une analyse</h3>
+                        <p class="text-slate-500 text-sm mt-1">6 modules de risque disponibles</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm mb-4">Sélectionnez vos parcelles dans le panneau gauche, puis cliquez sur l'un des 6 modules en bas de l'interface pour lancer l'analyse.</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="p-2 rounded-lg bg-yellow-50 border border-yellow-200 text-center">
+                        <i class="fa-solid fa-bell text-yellow-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-700">Alertes</p>
+                    </div>
+                    <div class="p-2 rounded-lg bg-blue-50 border border-blue-200 text-center">
+                        <i class="fa-solid fa-cloud-sun text-blue-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-700">Météo</p>
+                    </div>
+                    <div class="p-2 rounded-lg bg-indigo-50 border border-indigo-200 text-center">
+                        <i class="fa-solid fa-water text-indigo-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-700">Inondation</p>
+                    </div>
+                    <div class="p-2 rounded-lg bg-purple-50 border border-purple-200 text-center">
+                        <i class="fa-solid fa-mountain text-purple-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-700">Mvt Terrain</p>
+                    </div>
+                    <div class="p-2 rounded-lg bg-orange-50 border border-orange-200 text-center">
+                        <i class="fa-solid fa-sun text-orange-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-700">Sécheresse</p>
+                    </div>
+                    <div class="p-2 rounded-lg bg-red-50 border border-red-200 text-center">
+                        <i class="fa-solid fa-fire text-red-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-slate-700">Incendie</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-lift fade-in">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Consulter les résultats</h3>
+                        <p class="text-slate-500 text-sm mt-1">Analyse détaillée par parcelle</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-chart-bar text-emerald-500 w-5"></i>
+                        <p class="text-slate-600 text-sm">Résultats par parcelle avec graphiques & prévisions</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-export text-blue-500 w-5"></i>
+                        <p class="text-slate-600 text-sm">Export des résultats en PDF depuis le panneau</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-volume-high text-purple-500 w-5"></i>
+                        <p class="text-slate-600 text-sm">Lecture audio (TTS) — pratique en déplacement</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-robot text-orange-500 w-5"></i>
+                        <p class="text-slate-600 text-sm">Analyse IA : prompt généré pour approfondir les résultats</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-lift fade-in">
+                <div class="flex items-start gap-4 mb-5">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Créer un compte</h3>
+                        <p class="text-slate-500 text-sm mt-1">Pour aller plus loin</p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm flex-shrink-0"></i>
+                        <p class="text-slate-600 text-sm">Sauvegarder jusqu'à 10 parcelles</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm flex-shrink-0"></i>
+                        <p class="text-slate-600 text-sm">Retrouver vos données sur tous vos appareils</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm flex-shrink-0"></i>
+                        <p class="text-slate-600 text-sm">Nommer, modifier et organiser vos parcelles</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm flex-shrink-0"></i>
+                        <p class="text-slate-600 text-sm">Associer des cultures à chaque parcelle</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm flex-shrink-0"></i>
+                        <p class="text-slate-600 text-sm">Exporter vos données en JSON</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm flex-shrink-0"></i>
+                        <p class="text-slate-600 text-sm">Accès à toutes les analyses</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ 6 MODULES ══════════════════════════ -->
+<!-- vague haut -->
+<div style="background:#f8fafc;line-height:0;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:70px;">
+        <path d="M0,40 C500,0 900,70 1440,30 L1440,70 L0,70 Z" fill="#065f73"/>
+    </svg>
+</div>
+
+<section class="py-20 text-white" style="background-color:#065f73;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-14 fade-in">
+            <h2 class="text-3xl font-bold">Les 6 modules d'analyse</h2>
+            <div class="h-0.5 w-full bg-emerald-400 mt-4 mb-6"></div>
+            <p class="text-white/75 max-w-2xl text-lg">Chaque module interroge des sources officielles pour vous fournir une analyse précise et localisée.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="bg-white rounded-2xl p-6 card-lift mod-alerte fade-in">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-bell text-yellow-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Alertes Météo-France</h4>
+                        <p class="text-xs text-slate-500">Météo-France DPVigilance</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm">Vigilance jaune, orange, rouge par département. Alertes vent, orage, crues, neige, canicule.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 card-lift mod-meteo fade-in">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-cloud-sun text-blue-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Météo</h4>
+                        <p class="text-xs text-slate-500">Open-Meteo</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm">Température, précipitations, vent, humidité, ETP. Graphiques horaires & prévisions jour par jour.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 card-lift mod-inond fade-in">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-water text-indigo-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Risque Inondation</h4>
+                        <p class="text-xs text-slate-500">Géorisques</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm">Position par rapport aux zones TRI réglementaires. Distance, zone PPRI, risque crues.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 card-lift mod-terrain fade-in">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-mountain text-purple-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Mouvements de Terrain</h4>
+                        <p class="text-xs text-slate-500">Géorisques / BRGM</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm">Glissements, effondrements, coulées, chutes de blocs répertoriés dans un rayon de 30 km.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 card-lift mod-seche fade-in">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-sun text-orange-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Sécheresse</h4>
+                        <p class="text-xs text-slate-500">VigiEau · Open-Meteo</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm">Niveau de restriction en eau (VigiEau), déficit hydrique 90 jours, ETP et pluies cumulées.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 card-lift mod-incend fade-in">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-fire text-red-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Risque Incendie</h4>
+                        <p class="text-xs text-slate-500">BDIFF · Open-Meteo FWI</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm">Historique 20 ans (2004-2024) des feux, indice FWI météo du jour et de demain, distance au feu le plus proche.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- vague bas modules -->
+<div style="background:#065f73;line-height:0;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:70px;">
+        <path d="M0,30 C400,70 1000,0 1440,50 L1440,70 L0,70 Z" fill="#f8fafc"/>
+    </svg>
+</div>
+
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14 fade-in">
+            <h2 class="text-3xl font-bold text-slate-900">Questions fréquentes</h2>
+            <div class="h-0.5 w-full bg-emerald-500 mt-4"></div>
+        </div>
+
+        <div class="space-y-4">
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Mes parcelles n'apparaissent pas sur la carte ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Cliquer sur <strong>Zoom</strong> dans le panneau Parcelles, ou sur le bouton Zoom dans le menu ⚙️. La carte se centre automatiquement sur vos parcelles enregistrées.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Comment utiliser l'analyse IA ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    En bas de chaque panneau de résultats, cliquer sur <strong>🤖 Analyse IA</strong>. Un prompt est généré — copiez-le et choisissez une IA avec laquelle vous souhaitez approfondir l'analyse.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Comment modifier le nom ou la culture d'une parcelle ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Dans le panneau Parcelles à gauche, cliquez sur ✏️ à côté de la parcelle concernée. Une modale s'ouvre pour modifier le nom et les cultures.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Le panneau résultats ne s'ouvre pas ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Vérifiez qu'une parcelle est sélectionnée (cochée) dans le panneau gauche, puis cliquez à nouveau sur le module souhaité dans la barre du bas.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Comment supprimer une parcelle ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Dans le panneau Parcelles, cliquez sur 🗑 à côté de la parcelle. La suppression est définitive et peut aussi être faite depuis le panneau Gérer.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ CTA FINAL ══════════════════════════ -->
+<section class="py-20" style="background:linear-gradient(135deg,#043d4a,#065f73);">
+    <div class="max-w-3xl mx-auto px-4 text-center text-white fade-in">
+        <div class="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6 text-3xl font-extrabold" style="color:#10b981;">R</div>
+        <h2 class="text-3xl font-extrabold mb-4">Prêt à analyser vos parcelles ?</h2>
+        <p class="text-white/70 mb-8 text-lg">Accédez gratuitement à RiskAgri et commencez à protéger vos cultures en quelques minutes.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://riskagri.fr" target="_blank"
+               class="inline-flex items-center gap-2 px-10 py-4 rounded-2xl font-bold text-white text-lg transition hover:-translate-y-1 shadow-xl"
+               style="background:linear-gradient(135deg,#10b981,#059669);">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir RiskAgri
+            </a>
+            <a href="/#contact"
+               class="inline-flex items-center gap-2 px-10 py-4 rounded-2xl font-bold border border-white/30 text-white text-lg hover:bg-white/10 transition">
+                <i class="fa-solid fa-envelope"></i> Nous contacter
+            </a>
+        </div>
+        <p class="mt-6 text-white/40 text-sm">Développé par Inenvas · contact@inenvas.fr</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="bg-slate-900 text-slate-400 text-sm text-center py-6">
+    <p>&copy; 2026 Inenvas - Association Intelligence Environnementale ·
+       <a href="/mentions-legales" class="text-emerald-500 hover:underline ml-1">Mentions légales</a>
+    </p>
+</footer>
+
+<script>
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
