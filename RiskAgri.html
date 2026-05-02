@@ -69,9 +69,49 @@
             </a>
             <div class="hidden md:flex items-center gap-1">
                 <a href="/" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Accueil</a>
-                <a href="/#qui-sommes-nous" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Qui sommes-nous ?</a>
-                <a href="/#missions" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos missions</a>
-                <a href="/#nos-engagements" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos engagements</a>
+                
+                <div class="relative" id="nav-qui-dropdown-r">
+                    <button onclick="toggleNavQuiR()" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition gap-1">
+                        Qui sommes-nous ?
+                        <i class="fa-solid fa-chevron-down text-xs" id="nav-qui-icon-r"></i>
+                    </button>
+                    <div id="nav-qui-menu-r" class="hidden absolute top-full left-0 w-60 bg-white shadow-xl border border-slate-100 z-50 overflow-hidden">
+                        <a href="/#qui-sommes-nous" class="block px-5 py-3 text-slate-700 font-semibold hover:bg-emerald-50 hover:text-emerald-700 transition text-sm">
+                            Équipe d'Inenvas
+                        </a>
+                        <div class="border-t border-slate-100 px-5 py-2 text-sm font-bold text-slate-700">
+                            Notre catalogue de solutions
+                        </div>
+                        <a href="RiskAgri" class="flex items-center gap-2 px-6 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm">
+                            <i class="fa-solid fa-seedling text-emerald-500 text-xs"></i> RiskAgri
+                        </a>
+                        <div class="flex items-center gap-2 px-6 py-2 text-slate-400 text-sm cursor-not-allowed select-none">
+                            <i class="fa-solid fa-certificate text-slate-300 text-xs"></i> Certif
+                            <span class="ml-auto text-xs bg-slate-100 text-slate-400 px-2 py-0.5 rounded-full">Bientôt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative" id="nav-riskagri-dropdown">
+                    <button onclick="toggleNavRiskAgri()" class="px-5 h-20 flex items-center font-bold transition gap-1" style="background-color:#0d9488; color:white;">
+                        RiskAgri
+                        <i class="fa-solid fa-chevron-down text-xs" id="nav-riskagri-icon"></i>
+                    </button>
+                    <div id="nav-riskagri-menu" class="hidden absolute top-full left-0 w-72 bg-white shadow-xl border border-slate-100 z-50 overflow-hidden">
+                        <a href="#fonctionnement" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold">
+                            <i class="fa-solid fa-book-open text-emerald-500 text-xs"></i> Comment utiliser RiskAgri ?
+                        </a>
+                        <a href="#modules" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold border-t border-slate-100">
+                            <i class="fa-solid fa-layer-group text-emerald-500 text-xs"></i> Les 6 modules d'analyse
+                        </a>
+                        <a href="#faq" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold border-t border-slate-100">
+                            <i class="fa-solid fa-circle-question text-emerald-500 text-xs"></i> FAQ
+                        </a>
+                        <a href="Guide-RiskAgri.pdf" download class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold border-t border-slate-100">
+                            <i class="fa-solid fa-file-pdf text-emerald-500 text-xs"></i> Télécharger le guide
+                        </a>
+                    </div>
+                </div>
                 <a href="/#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color:#06589b;">Nous contacter</a>
             </div>
         </div>
@@ -340,7 +380,7 @@
     </svg>
 </div>
 
-<section class="py-20 text-white" style="background-color:#065f73;">
+<section id="modules" class="py-20 text-white" style="background-color:#065f73;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-14 fade-in">
@@ -441,7 +481,7 @@
 </div>
 
 <!-- ══════════════════════════ FAQ ══════════════════════════ -->
-<section class="py-20 bg-slate-50">
+<section id="faq" class="py-20 bg-slate-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-14 fade-in">
             <h2 class="text-3xl font-bold text-slate-900">Questions fréquentes</h2>
@@ -541,6 +581,35 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Dropdown Qui sommes-nous
+function toggleNavQuiR() {
+    const menu = document.getElementById('nav-qui-menu-r');
+    const icon = document.getElementById('nav-qui-icon-r');
+    menu.classList.toggle('hidden');
+    icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+
+// Dropdown RiskAgri
+function toggleNavRiskAgri() {
+    const menu = document.getElementById('nav-riskagri-menu');
+    const icon = document.getElementById('nav-riskagri-icon');
+    menu.classList.toggle('hidden');
+    icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+
+// Fermer les menus si clic en dehors
+document.addEventListener('click', function(e) {
+    ['nav-qui-dropdown-r', 'nav-riskagri-dropdown'].forEach(id => {
+        const el = document.getElementById(id);
+        const menuId = id === 'nav-qui-dropdown-r' ? 'nav-qui-menu-r' : 'nav-riskagri-menu';
+        const iconId = id === 'nav-qui-dropdown-r' ? 'nav-qui-icon-r' : 'nav-riskagri-icon';
+        if (el && !el.contains(e.target)) {
+            document.getElementById(menuId).classList.add('hidden');
+            document.getElementById(iconId).style.transform = 'rotate(0deg)';
+        }
+    });
+});
 </script>
 
 </body>
