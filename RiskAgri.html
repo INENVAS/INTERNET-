@@ -60,13 +60,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             <a href="/" class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo Inenvas" class="h-16 w-auto self-center" style="background-color:rgba(241,239,239,0.95);border-radius:8px;">
-                <div class="flex flex-col leading-tight font-bold text-sm self-center" style="color:#065f46;">
+                <img src="logo.png" alt="Logo Inenvas" class="h-12 w-auto self-center" style="background-color:rgba(241,239,239,0.95);border-radius:8px;">
+                <div class="flex flex-col leading-tight font-bold text-xs sm:text-sm self-center" style="color:#065f46;">
                     <span>Association</span>
                     <span>Intelligence</span>
                     <span>Environnementale</span>
                 </div>
             </a>
+            <!-- Menu desktop -->
             <div class="hidden md:flex items-center gap-1">
                 <a href="/" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Accueil</a>
                 
@@ -114,6 +115,35 @@
                 </div>
                 <a href="/#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color:#06589b;">Nous contacter</a>
             </div>
+            <!-- Bouton hamburger mobile -->
+            <button onclick="toggleMobileMenuR()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Menu">
+                <span class="block w-6 h-0.5 bg-slate-700 transition-all" id="rham-1"></span>
+                <span class="block w-6 h-0.5 bg-slate-700 transition-all" id="rham-2"></span>
+                <span class="block w-6 h-0.5 bg-slate-700 transition-all" id="rham-3"></span>
+            </button>
+        </div>
+    </div>
+    <!-- Menu mobile déroulant -->
+    <div id="mobile-menu-r" class="hidden md:hidden bg-white border-t border-slate-200 shadow-lg">
+        <div class="flex flex-col px-4 py-4 gap-1">
+            <a href="/" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Accueil</a>
+            <a href="/#qui-sommes-nous" onclick="closeMobileMenuR()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Qui sommes-nous ?</a>
+            <div class="border-t border-slate-100 mt-1 pt-1">
+                <p class="px-4 py-1 text-xs font-bold text-slate-400 uppercase tracking-wide">RiskAgri</p>
+                <a href="#fonctionnement" onclick="closeMobileMenuR()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-book-open text-emerald-500 text-xs"></i> Comment utiliser RiskAgri ?
+                </a>
+                <a href="#modules" onclick="closeMobileMenuR()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-layer-group text-emerald-500 text-xs"></i> Les 6 modules
+                </a>
+                <a href="#faq" onclick="closeMobileMenuR()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-circle-question text-emerald-500 text-xs"></i> FAQ
+                </a>
+                <a href="Guide-RiskAgri.pdf.pdf" download class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-file-pdf text-emerald-500 text-xs"></i> Télécharger le guide PDF
+                </a>
+            </div>
+            <a href="/#contact" onclick="closeMobileMenuR()" class="mt-2 px-4 py-3 text-white font-bold rounded-lg text-center transition" style="background-color:#06589b;">Nous contacter</a>
         </div>
     </div>
 </nav>
@@ -132,7 +162,7 @@
                 <div class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-1.5 text-emerald-300 text-sm font-semibold mb-6">
                     <i class="fa-solid fa-seedling"></i> Développé par INENVAS
                 </div>
-                <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
                     <span style="color:#10b981;">Risk</span><span style="color:#ffffff;">Agri</span>
                 </h1>
                 <p class="text-xl text-white/80 leading-relaxed mb-4">
@@ -158,7 +188,7 @@
             <div class="lg:w-1/2 flex flex-col gap-4">
 
                 <!-- 3 features clés EN HAUT -->
-                <div class="grid grid-cols-3 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div class="rounded-2xl p-4 text-center card-lift" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);">
                         <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-emerald-500/20 flex items-center justify-center">
                             <i class="fa-solid fa-location-dot text-emerald-400 text-lg"></i>
@@ -389,7 +419,7 @@
             <p class="text-white/75 max-w-2xl text-lg">Chaque module interroge des sources officielles pour vous fournir une analyse précise et localisée.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
             <div class="bg-white rounded-2xl p-6 card-lift mod-alerte fade-in">
                 <div class="flex items-center gap-3 mb-4">
@@ -548,7 +578,7 @@
         <div class="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6 text-3xl font-extrabold" style="color:#10b981;">R</div>
         <h2 class="text-3xl font-extrabold mb-4">Prêt à analyser vos parcelles ?</h2>
         <p class="text-white/70 mb-8 text-lg">Accédez gratuitement à RiskAgri et commencez à protéger vos cultures en quelques minutes.</p>
-        <div class="flex flex-wrap justify-center gap-4">
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
             <a href="https://riskagri.fr" target="_blank"
                class="inline-flex items-center gap-2 px-10 py-4 rounded-2xl font-bold text-white text-lg transition hover:-translate-y-1 shadow-xl"
                style="background:linear-gradient(135deg,#10b981,#059669);">
@@ -576,6 +606,30 @@
 </footer>
 
 <script>
+// Menu hamburger mobile
+function toggleMobileMenuR() {
+    const menu = document.getElementById('mobile-menu-r');
+    const h1 = document.getElementById('rham-1');
+    const h2 = document.getElementById('rham-2');
+    const h3 = document.getElementById('rham-3');
+    menu.classList.toggle('hidden');
+    if (!menu.classList.contains('hidden')) {
+        h1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+        h2.style.opacity = '0';
+        h3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+    } else {
+        h1.style.transform = '';
+        h2.style.opacity = '';
+        h3.style.transform = '';
+    }
+}
+function closeMobileMenuR() {
+    document.getElementById('mobile-menu-r').classList.add('hidden');
+    document.getElementById('rham-1').style.transform = '';
+    document.getElementById('rham-2').style.opacity = '';
+    document.getElementById('rham-3').style.transform = '';
+}
+
 // Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
