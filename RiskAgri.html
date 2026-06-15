@@ -200,7 +200,7 @@
 <!-- ═══ PANEL SLIDE-IN ASSOCIÉS (coming soon) ═══ -->
 <div id="panel-overlay-assoc" onclick="fermerPanelAssocies()" style="position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9996;opacity:0;pointer-events:none;transition:opacity .3s;"></div>
 
-<div id="assoc-panel" role="dialog" aria-modal="true" style="position:fixed;top:0;right:0;width:50%;max-width:100%;height:100vh;background:#fff;z-index:9997;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.18);">
+<div id="assoc-panel" role="dialog" aria-modal="true" style="position:fixed;top:0;right:0;width:50vw;min-width:50vw;height:100vh;background:#fff;z-index:9997;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.18);">
     <!-- Header vert -->
     <div style="background:linear-gradient(135deg,#065f46,#064e3b);color:#fff;padding:1.25rem 1.5rem;flex-shrink:0;">
         <div class="flex items-start justify-between gap-4">
@@ -357,13 +357,13 @@
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="pt-20">
-    <div class="eco-gradient text-white py-7 px-4">
+    <div class="eco-gradient text-white py-4 px-4">
         <div class="max-w-7xl mx-auto">
-            <p class="text-emerald-300 text-sm font-semibold uppercase tracking-widest mb-2">
+            <p class="text-emerald-300 text-xs font-semibold uppercase tracking-widest mb-1">
                 <i class="fa-solid fa-leaf mr-2"></i>Rejoindre INENVAS
             </p>
-            <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">Construisons ensemble l'avenir durable</h1>
-            <p class="text-emerald-100 text-lg max-w-2xl font-light">
+            <h1 class="text-xl sm:text-2xl font-extrabold mb-1">Construisons ensemble l'avenir durable</h1>
+            <p class="text-emerald-100 text-sm max-w-2xl font-light">
                 Offres d'emploi, stages, bénévolat et recherche de nouveaux associés — rejoignez un collectif engagé pour la transition écologique.
             </p>
         </div>
@@ -381,7 +381,7 @@
                      class="w-full rounded-2xl object-cover shadow-lg" style="max-height:70vh;"
                      onerror="this.style.display='none';document.getElementById('img-placeholder').style.display='flex';">
                 <div id="img-placeholder" class="w-full rounded-2xl shadow-lg flex-col items-center justify-center gap-4"
-                     style="min-height:420px;background:linear-gradient(135deg,#d1fae5,#ecfdf5);display:flex;">
+                     style="min-height:420px;background:linear-gradient(135deg,#d1fae5,#ecfdf5);display:none;">
                     <i class="fa-solid fa-image text-5xl text-emerald-300"></i>
                     <p class="text-sm text-center px-6 text-emerald-700 font-medium">
                         Photo d'équipe ou image terrain.<br>
