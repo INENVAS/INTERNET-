@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Certif | Inenvas</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="description" content="Agri-Certif — la plateforme SaaS d'Inenvas pour les bureaux de conseil et d'accompagnement : centralisez vos projets de certification agricole, dématérialisez le contrôle interne et collaborez sans friction.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        nav  { font-family: 'Poppins', sans-serif; }
+        .glass { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); }
+
+        .hero-bg-certif {
+            background-color: #1B4332;
+            background-image:
+                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(45,106,79,0.5) 0%, transparent 50%);
+            background-size: 42px 42px, 42px 42px, 100% 100%;
+        }
+
+        .card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+
+        .step-num-badge {
+            width: 2.5rem; height: 2.5rem; border-radius: 50%;
+            background: linear-gradient(135deg,#C8902A,#1B4332);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1rem; color: white;
+            flex-shrink: 0;
+        }
+
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .wave-bottom { line-height: 0; }
+
+        .role-admin { background: #1B4332; }
+        .role-ctrl  { background: #fff; border: 1px solid #e2e8f0; }
+        .role-prod  { background: #f1f5f9; border: 1px solid #e2e8f0; }
+
+        .pulse-dot { animation: pulseC 1.6s ease-in-out infinite; }
+        @keyframes pulseC { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(.8);} }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- ══════════════════════════ NAV ══════════════════════════ -->
+<nav class="fixed w-full z-50 glass border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+            <a href="/" class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo Inenvas" class="h-12 w-auto self-center" style="background-color:rgba(241,239,239,0.95);border-radius:8px;">
+                <div class="flex flex-col leading-tight font-bold text-xs sm:text-sm self-center" style="color:#065f46;">
+                    <span>Intelligence</span>
+                    <span>Environnementale</span>
+                </div>
+            </a>
+            <!-- Menu desktop -->
+            <div class="hidden md:flex items-center gap-1">
+                <a href="/" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Accueil</a>
+
+                <div class="relative" id="nav-qui-dropdown-c">
+                    <button onclick="toggleNavQuiC()" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition gap-1">
+                        Qui sommes-nous ?
+                        <svg id="nav-qui-icon-c" class="transition-transform" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div id="nav-qui-menu-c" class="hidden absolute top-full left-0 w-60 bg-white shadow-xl border border-slate-100 z-50 overflow-hidden">
+                        <a href="/#qui-sommes-nous" class="block px-5 py-3 text-slate-700 font-semibold hover:bg-emerald-50 hover:text-emerald-700 transition text-sm">
+                            Équipe d'Inenvas
+                        </a>
+                        <div class="border-t border-slate-100 px-5 py-2 text-sm font-bold text-slate-700">
+                            Notre catalogue de solutions
+                        </div>
+                        <a href="RiskAgri" class="flex items-center gap-2 px-6 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm">
+                            <i class="fa-solid fa-seedling text-emerald-500 text-xs"></i> RiskAgri
+                        </a>
+                        <a href="Agri-Certif" class="flex items-center gap-2 px-6 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm">
+                            <i class="fa-solid fa-certificate text-emerald-500 text-xs"></i> Agri-Certif
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative" id="nav-certif-dropdown">
+                    <button onclick="toggleNavCertif()" class="px-5 h-20 flex items-center font-bold transition gap-1" style="background-color:#0d9488; color:white;">
+                        Agri-Certif
+                        <svg id="nav-certif-icon" class="transition-transform" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div id="nav-certif-menu" class="hidden absolute top-full left-0 w-72 bg-white shadow-xl border border-slate-100 z-50 overflow-hidden">
+                        <a href="#comment" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold">
+                            <i class="fa-solid fa-book-open text-emerald-500 text-xs"></i> Comment utiliser Agri-Certif ?
+                        </a>
+                        <a href="#fonctionnalites" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold border-t border-slate-100">
+                            <i class="fa-solid fa-layer-group text-emerald-500 text-xs"></i> Fonctionnalités clés
+                        </a>
+                        <a href="#acces" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold border-t border-slate-100">
+                            <i class="fa-solid fa-users text-emerald-500 text-xs"></i> Niveaux d'accès
+                        </a>
+                        <a href="#faq" class="flex items-center gap-3 px-5 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition text-sm font-semibold border-t border-slate-100">
+                            <i class="fa-solid fa-circle-question text-emerald-500 text-xs"></i> FAQ
+                        </a>
+                    </div>
+                </div>
+                <a href="/#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color:#06589b;">Nous contacter</a>
+            </div>
+            <!-- Bouton hamburger mobile -->
+            <button onclick="toggleMobileMenuC()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Menu">
+                <span class="block w-6 h-0.5 bg-slate-700 transition-all" id="cham-1"></span>
+                <span class="block w-6 h-0.5 bg-slate-700 transition-all" id="cham-2"></span>
+                <span class="block w-6 h-0.5 bg-slate-700 transition-all" id="cham-3"></span>
+            </button>
+        </div>
+    </div>
+    <!-- Menu mobile déroulant -->
+    <div id="mobile-menu-c" class="hidden md:hidden bg-white border-t border-slate-200 shadow-lg">
+        <div class="flex flex-col px-4 py-4 gap-1">
+            <a href="/" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Accueil</a>
+            <a href="/#qui-sommes-nous" onclick="closeMobileMenuC()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Qui sommes-nous ?</a>
+            <a href="RiskAgri" onclick="closeMobileMenuC()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                <i class="fa-solid fa-seedling text-emerald-500 text-xs"></i> RiskAgri
+            </a>
+            <div class="border-t border-slate-100 mt-1 pt-1">
+                <p class="px-4 py-1 text-xs font-bold text-slate-400 uppercase tracking-wide">Agri-Certif</p>
+                <a href="#comment" onclick="closeMobileMenuC()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-book-open text-emerald-500 text-xs"></i> Comment ça marche ?
+                </a>
+                <a href="#fonctionnalites" onclick="closeMobileMenuC()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-layer-group text-emerald-500 text-xs"></i> Fonctionnalités clés
+                </a>
+                <a href="#acces" onclick="closeMobileMenuC()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-users text-emerald-500 text-xs"></i> Niveaux d'accès
+                </a>
+                <a href="#faq" onclick="closeMobileMenuC()" class="flex items-center gap-2 px-4 py-3 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition text-sm">
+                    <i class="fa-solid fa-circle-question text-emerald-500 text-xs"></i> FAQ
+                </a>
+            </div>
+            <a href="/#contact" onclick="closeMobileMenuC()" class="mt-2 px-4 py-3 text-white font-bold rounded-lg text-center transition" style="background-color:#06589b;">Nous contacter</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<header class="hero-bg-certif pt-28 pb-0 text-white relative overflow-hidden">
+
+    <div style="position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,.06);pointer-events:none;"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16 pb-16">
+
+            <!-- texte gauche -->
+            <div class="lg:w-1/2">
+                <div class="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-400/30 rounded-full px-4 py-1.5 text-emerald-300 text-sm font-semibold mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 pulse-dot"></span> Développé par INENVAS
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    Certifiez <span style="color:#74C69D;">avec méthode,</span><br>
+                    collaborez sans friction
+                </h1>
+                <ul class="flex flex-col gap-3 mb-8">
+                    <li class="flex items-start gap-3 text-white/75 text-[15px] leading-relaxed">
+                        <i class="fa-solid fa-circle-check text-emerald-300 mt-1"></i>
+                        Centralisez la gestion de vos différents projets de certification.
+                    </li>
+                    <li class="flex items-start gap-3 text-white/75 text-[15px] leading-relaxed">
+                        <i class="fa-solid fa-circle-check text-emerald-300 mt-1"></i>
+                        Plus besoin de remplir vos documents de traçabilité à la main — dématérialisez votre contrôle interne.
+                    </li>
+                </ul>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://app.agri-certif.com/" target="_blank"
+                       class="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-white transition hover:-translate-y-1 shadow-lg"
+                       style="background:linear-gradient(135deg,#C8902A,#a9761f);">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Demander mon accès
+                    </a>
+                    <a href="#comment"
+                       class="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold border border-white/30 text-white hover:bg-white/10 transition">
+                        <i class="fa-solid fa-circle-play"></i> Voir comment ça marche
+                    </a>
+                </div>
+                <p class="mt-5 text-white/40 text-xs"><strong class="text-white/60 font-semibold">Plateforme du groupe INENVAS</strong> — Intelligence Environnementale, comme RiskAgri</p>
+            </div>
+
+            <!-- MOCKUP -->
+            <div class="lg:w-1/2">
+                <div class="rounded-2xl overflow-hidden shadow-2xl bg-white" style="border:1px solid rgba(255,255,255,0.1);">
+                    <div class="flex items-center gap-2 px-4 py-2.5 border-b border-slate-200" style="background:#ECE8E2;">
+                        <span class="w-2.5 h-2.5 rounded-full" style="background:#FF5F57;"></span>
+                        <span class="w-2.5 h-2.5 rounded-full" style="background:#FEBC2E;"></span>
+                        <span class="w-2.5 h-2.5 rounded-full" style="background:#28C840;"></span>
+                        <div class="flex-1 bg-white border border-slate-200 rounded text-[11px] text-slate-400 text-center py-1">app.agri-certif.com/projets/cacao-togo</div>
+                    </div>
+                    <div class="grid" style="grid-template-columns:150px 1fr;">
+                        <div class="text-white py-4" style="background:#1B4332;">
+                            <div class="px-3 pb-3 mb-2 border-b border-white/10 font-extrabold text-sm">Agri-<span style="color:#74C69D;">Certif</span></div>
+                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium" style="background:rgba(255,255,255,.1);color:#fff;border-right:2px solid #74C69D;">
+                                <span class="w-2 h-2 rounded-full bg-white/60"></span> Tableau de bord
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
+                                <span class="w-2 h-2 rounded-sm bg-white/40"></span> Projets
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
+                                <span class="w-2 h-2 rounded-full bg-white/40"></span> Producteurs
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
+                                <span class="w-2 h-2 bg-white/40" style="clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);"></span> Cartographie
+                            </div>
+                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
+                                <span class="w-2 h-2 rounded-sm bg-white/40"></span> Documents
+                            </div>
+                        </div>
+                        <div class="p-4" style="background:#d5c9b7;">
+                            <p class="text-[11px] font-bold text-slate-800 mb-2.5">Projet — Bio 2026 — AIR COOP</p>
+                            <div class="grid grid-cols-3 gap-2 mb-2.5">
+                                <div class="bg-white border border-slate-200 rounded-lg p-2">
+                                    <p class="text-lg font-extrabold leading-none" style="color:#1B4332;">247</p>
+                                    <p class="text-[8px] font-semibold text-slate-400 uppercase mt-0.5">Producteurs</p>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded-lg p-2">
+                                    <p class="text-lg font-extrabold leading-none" style="color:#1B4332;">1 843</p>
+                                    <p class="text-[8px] font-semibold text-slate-400 uppercase mt-0.5">Hectares</p>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded-lg p-2">
+                                    <p class="text-lg font-extrabold leading-none" style="color:#1B4332;">94%</p>
+                                    <p class="text-[8px] font-semibold text-slate-400 uppercase mt-0.5">Complets</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1 px-2 py-1 text-[9px] font-bold text-slate-400 uppercase">
+                                <span>Producteur</span><span>Zone</span><span>Statut</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1 bg-white border border-slate-200 rounded px-2 py-1.5 mb-1 text-[9px] font-medium text-slate-700">
+                                <span>Kofi Mensah</span><span>Zone Nord</span><span class="inline-block px-1.5 rounded-full text-[8px] font-bold w-fit" style="background:#D8F3DC;color:#1B4332;">Signé</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1 bg-white border border-slate-200 rounded px-2 py-1.5 mb-1 text-[9px] font-medium text-slate-700">
+                                <span>Afi Dossou</span><span>Zone Sud</span><span class="inline-block px-1.5 rounded-full text-[8px] font-bold w-fit" style="background:#F5ECD8;color:#C8902A;">En cours</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1 bg-white border border-slate-200 rounded px-2 py-1.5 text-[9px] font-medium text-slate-700">
+                                <span>Yao Agbeko</span><span>Zone Est</span><span class="inline-block px-1.5 rounded-full text-[8px] font-bold w-fit" style="background:#D8F3DC;color:#1B4332;">Signé</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wave-bottom">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:70px;">
+            <path d="M0,35 C300,70 900,0 1440,40 L1440,70 L0,70 Z" fill="#f8fafc"/>
+        </svg>
+    </div>
+</header>
+
+<!-- ══════════════════════════ STATS BAND ══════════════════════════ -->
+<div class="bg-white border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="md:border-r border-slate-200">
+            <p class="text-3xl font-extrabold" style="color:#1B4332;">3</p>
+            <p class="text-sm text-slate-500 mt-1">Niveaux d'accès utilisateurs</p>
+        </div>
+        <div class="md:border-r border-slate-200">
+            <p class="text-3xl font-extrabold" style="color:#1B4332;">9</p>
+            <p class="text-sm text-slate-500 mt-1">Fonctionnalités clés</p>
+        </div>
+        <div class="md:border-r border-slate-200">
+            <p class="text-3xl font-extrabold" style="color:#1B4332;">3</p>
+            <p class="text-sm text-slate-500 mt-1">Langues (FR / EN / Local)</p>
+        </div>
+        <div>
+            <p class="text-3xl font-extrabold" style="color:#1B4332;">100%</p>
+            <p class="text-sm text-slate-500 mt-1">Fonctionnel hors connexion</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════ FONCTIONNALITÉS ══════════════════════════ -->
+<section id="fonctionnalites" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14 fade-in">
+            <h2 class="text-3xl font-bold text-slate-900">Tout ce dont un bureau de conseil et d'accompagnement a besoin</h2>
+            <div class="h-0.5 w-full bg-emerald-500 mt-4 mb-6"></div>
+            <p class="text-slate-600 max-w-2xl text-lg">De la création du projet jusqu'à la signature finale, Agri-Certif couvre chaque étape du cycle de certification.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#D8F3DC;">
+                    <i class="fa-solid fa-diagram-project" style="color:#2D6A4F;"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Gestion de projets</h4>
+                <p class="text-slate-600 text-sm">Créez et configurez chaque projet avec ses zones, acteurs, cadre réglementaire et tableau de bord dynamique.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#1B4332;">
+                    <i class="fa-solid fa-users-line text-white"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Base de données producteurs</h4>
+                <p class="text-slate-600 text-sm">Importez vos listes Excel, complétez les fiches individuelles avec recherche et exportez au format souhaité.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#D8F3DC;">
+                    <i class="fa-solid fa-draw-polygon" style="color:#2D6A4F;"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Cartographie GPS</h4>
+                <p class="text-slate-600 text-sm">Dessinez les parcelles en polygones sur carte en temps réel, calculez les superficies et relevez les coordonnées GPS.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-slate-200">
+                    <i class="fa-solid fa-file-lines text-slate-600"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Documents de traçabilité</h4>
+                <p class="text-slate-600 text-sm">Paramétrez vos modèles une fois par projet, générez lettres d'engagement, fiches de contrôle et cahiers producteurs.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#D8F3DC;">
+                    <i class="fa-solid fa-signature" style="color:#2D6A4F;"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Signature électronique</h4>
+                <p class="text-slate-600 text-sm">Faites signer sur tablette ou à distance par SMS et WhatsApp. Signature certifiée eIDAS et copie automatique au producteur.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#F5ECD8;">
+                    <i class="fa-solid fa-comments" style="color:#C8902A;"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Communication multicanal</h4>
+                <p class="text-slate-600 text-sm">SMS et WhatsApp directement depuis la plateforme. Chatbot trilingue (FR / Ewe / Kabiyè) pour les producteurs sans accès web.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-slate-200">
+                    <i class="fa-solid fa-wifi text-slate-600"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Mode hors connexion</h4>
+                <p class="text-slate-600 text-sm">Travaillez sur le terrain sans réseau. Les données collectées se synchronisent automatiquement à la reconnexion.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#1B4332;">
+                    <i class="fa-solid fa-palette text-white"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Espace personnalisable</h4>
+                <p class="text-slate-600 text-sm">Chaque bureau intègre son logo et personnalise son espace (couleurs, préférences) pour une expérience à son image.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-6 card-lift border border-slate-100 fade-in">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#D8F3DC;">
+                    <i class="fa-solid fa-microphone" style="color:#2D6A4F;"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 mb-1.5">Réunions et transcription</h4>
+                <p class="text-slate-600 text-sm">Enregistrez vos réunions directement sur la plateforme. Transcription automatique et génération des comptes rendus.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ COMMENT ÇA MARCHE — 5 ÉTAPES ══════════════════════════ -->
+<!-- vague haut -->
+<div style="background:#f8fafc;line-height:0;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:70px;">
+        <path d="M0,40 C500,0 900,70 1440,30 L1440,70 L0,70 Z" fill="#1B4332"/>
+    </svg>
+</div>
+
+<section id="comment" class="py-20 text-white relative overflow-hidden" style="background-color:#1B4332;">
+    <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="mb-14 fade-in">
+            <h2 class="text-3xl font-bold">Opérationnel en 5 étapes</h2>
+            <div class="h-0.5 w-full bg-amber-400 mt-4 mb-6"></div>
+            <p class="text-white/70 max-w-2xl text-lg">De l'inscription à la certification complète, Agri-Certif guide votre bureau à chaque étape.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+
+            <div class="rounded-2xl p-5 fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                <div class="step-num-badge mb-4">1</div>
+                <h4 class="font-bold text-sm mb-2">Créez votre compte</h4>
+                <p class="text-white/55 text-xs leading-relaxed">Inscrivez votre bureau de conseil et d'accompagnement. Votre espace privé est créé instantanément. 1 mois gratuit.</p>
+            </div>
+
+            <div class="rounded-2xl p-5 fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                <div class="step-num-badge mb-4">2</div>
+                <h4 class="font-bold text-sm mb-2">Configurez votre projet</h4>
+                <p class="text-white/55 text-xs leading-relaxed">Renseignez les informations du projet, importez votre liste de producteurs Excel et définissez vos zones.</p>
+            </div>
+
+            <div class="rounded-2xl p-5 fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                <div class="step-num-badge mb-4">3</div>
+                <h4 class="font-bold text-sm mb-2">Générez les documents</h4>
+                <p class="text-white/55 text-xs leading-relaxed">Générez les documents de traçabilité de vos producteurs et recueillez leurs signatures à distance.</p>
+            </div>
+
+            <div class="rounded-2xl p-5 fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                <div class="step-num-badge mb-4">4</div>
+                <h4 class="font-bold text-sm mb-2">Déployez sur le terrain</h4>
+                <p class="text-white/55 text-xs leading-relaxed">Vos contrôleurs internes reçoivent leur accès, cartographient les parcelles et collectent les données hors connexion.</p>
+            </div>
+
+            <div class="rounded-2xl p-5 fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);">
+                <div class="step-num-badge mb-4">5</div>
+                <h4 class="font-bold text-sm mb-2">Suivez l'avancement</h4>
+                <p class="text-white/55 text-xs leading-relaxed">Suivez les étapes de vos projets de certification en temps réel depuis votre tableau de bord centralisé.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- vague bas -->
+<div style="background:#1B4332;line-height:0;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="display:block;width:100%;height:70px;">
+        <path d="M0,30 C400,70 1000,0 1440,50 L1440,70 L0,70 Z" fill="#f8fafc"/>
+    </svg>
+</div>
+
+<!-- ══════════════════════════ NIVEAUX D'ACCÈS ══════════════════════════ -->
+<section id="acces" class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14 fade-in">
+            <h2 class="text-3xl font-bold text-slate-900">Un outil adapté à chaque acteur</h2>
+            <div class="h-0.5 w-full bg-emerald-500 mt-4 mb-6"></div>
+            <p class="text-slate-600 max-w-2xl text-lg">Trois niveaux d'accès distincts pour que chaque utilisateur voie uniquement ce qui le concerne.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Super Administrateur -->
+            <div class="role-admin rounded-2xl p-7 text-white fade-in">
+                <div class="w-8 h-8 rounded flex items-center justify-center text-xs font-extrabold mb-4" style="background:rgba(255,255,255,0.15);">01</div>
+                <h4 class="font-extrabold text-base mb-1">Super Administrateur</h4>
+                <p class="text-emerald-300 text-[10px] font-bold uppercase tracking-wide mb-4">Bureau de conseil et d'accompagnement</p>
+                <div class="h-px bg-white/15 mb-4"></div>
+                <ul class="space-y-2.5 text-sm text-white/75">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-300 text-xs mt-1"></i> Accès complet à tous les projets et données</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-300 text-xs mt-1"></i> Création et configuration des projets</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-300 text-xs mt-1"></i> Attribution des zones aux contrôleurs internes</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-300 text-xs mt-1"></i> Tableau de bord global et statistiques</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-300 text-xs mt-1"></i> Personnalisation de l'espace : logo et couleurs</li>
+                </ul>
+            </div>
+
+            <!-- Contrôleur Interne -->
+            <div class="role-ctrl rounded-2xl p-7 fade-in">
+                <div class="w-8 h-8 rounded flex items-center justify-center text-xs font-extrabold mb-4" style="background:#D8F3DC;color:#1B4332;">02</div>
+                <h4 class="font-extrabold text-base text-slate-900 mb-1">Contrôleur Interne</h4>
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wide mb-4">Agent de terrain</p>
+                <div class="h-px bg-slate-200 mb-4"></div>
+                <ul class="space-y-2.5 text-sm text-slate-600">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs mt-1"></i> Accès aux dossiers de sa zone uniquement</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs mt-1"></i> Cartographie GPS des parcelles terrain</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs mt-1"></i> Génération et signature des documents</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs mt-1"></i> Travail complet en mode hors connexion</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs mt-1"></i> Communication SMS et WhatsApp</li>
+                </ul>
+            </div>
+
+            <!-- Producteur -->
+            <div class="role-prod rounded-2xl p-7 fade-in">
+                <div class="w-8 h-8 rounded flex items-center justify-center text-xs font-extrabold mb-4 bg-slate-200 text-slate-600">03</div>
+                <h4 class="font-extrabold text-base text-slate-900 mb-1">Producteur</h4>
+                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-wide mb-4">Agriculteur</p>
+                <div class="h-px bg-slate-200 mb-4"></div>
+                <ul class="space-y-2.5 text-sm text-slate-600">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 text-xs mt-1"></i> Accès à son dossier personnel uniquement</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 text-xs mt-1"></i> Saisie du cahier de production</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 text-xs mt-1"></i> Signature électronique des documents</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 text-xs mt-1"></i> Accès via chatbot WhatsApp (FR / Ewe / Kabiyè)</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 text-xs mt-1"></i> Réception automatique des documents signés</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ MODE HORS CONNEXION ══════════════════════════ -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-slate-50 border border-slate-100 rounded-3xl p-8 sm:p-10 grid md:grid-cols-2 gap-10 items-center fade-in">
+            <div>
+                <p class="text-xs font-bold uppercase tracking-wide text-emerald-600 mb-3">Mode terrain</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">Conçu pour les zones <span class="text-emerald-600">sans connexion</span></h2>
+                <p class="text-slate-600 text-sm leading-relaxed mb-5">Les zones de production agricole sont souvent hors réseau. Agri-Certif fonctionne intégralement sans internet — les données collectées se synchronisent automatiquement à la reconnexion.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#D8F3DC;color:#1B4332;border:1px solid #74C69D;"><i class="fa-solid fa-check text-[10px]"></i> GPS offline</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#D8F3DC;color:#1B4332;border:1px solid #74C69D;"><i class="fa-solid fa-check text-[10px]"></i> Fiches contrôle offline</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#D8F3DC;color:#1B4332;border:1px solid #74C69D;"><i class="fa-solid fa-check text-[10px]"></i> Signature tablette</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-300"><i class="fa-solid fa-check text-[10px]"></i> Synchronisation automatique</span>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2.5">
+                <div class="flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-3">
+                    <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#22C55E;"></span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-slate-900">En ligne</p>
+                        <p class="text-xs text-slate-400">Synchronisation en temps réel</p>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">Actif</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-3">
+                    <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#EF4444;"></span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-slate-900">Hors connexion</p>
+                        <p class="text-xs text-slate-400">Données stockées localement</p>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">4 éléments</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-3">
+                    <span class="w-2 h-2 rounded-full flex-shrink-0 pulse-dot" style="background:#F59E0B;"></span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-slate-900">Synchronisation en cours</p>
+                        <p class="text-xs text-slate-400">Envoi des données collectées...</p>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">2 / 4</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section id="faq" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-14 fade-in">
+            <h2 class="text-3xl font-bold text-slate-900">Questions fréquentes</h2>
+            <div class="h-0.5 w-full bg-emerald-500 mt-4"></div>
+        </div>
+
+        <div class="space-y-4">
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>À qui s'adresse Agri-Certif ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Agri-Certif s'adresse aux bureaux de conseil et d'accompagnement qui gèrent des projets de certification agricole (Bio, filières durables, cahiers des charges privés) pour le compte de groupements de producteurs.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Agri-Certif fonctionne-t-il sans connexion internet ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Oui, intégralement. Les contrôleurs internes peuvent cartographier les parcelles, remplir les fiches de contrôle et faire signer les documents sur le terrain sans réseau. Les données se synchronisent automatiquement dès la reconnexion.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Comment les producteurs accèdent-ils à leurs documents ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Les producteurs disposent d'un accès à leur dossier personnel et peuvent également interagir via un chatbot WhatsApp trilingue (français, éwé, kabiyè), utile pour ceux qui n'ont pas accès au web.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden group fade-in">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 list-none">
+                    <span><i class="fa-solid fa-circle-question text-emerald-500 mr-3"></i>Comment demander l'accès à la plateforme ?</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="px-6 pb-6 text-slate-600 text-sm">
+                    Cliquez sur « Demander mon accès » : votre bureau de conseil bénéficie d'un mois gratuit pour créer son espace, configurer un premier projet et l'essayer avec votre équipe.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════ CTA FINAL ══════════════════════════ -->
+<section class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#1B4332,#2D6A4F);">
+    <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;"></div>
+    <div class="max-w-3xl mx-auto px-4 text-center text-white fade-in relative z-10">
+        <div class="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6 text-3xl font-extrabold" style="color:#C8902A;">
+            <i class="fa-solid fa-certificate"></i>
+        </div>
+        <h2 class="text-3xl font-extrabold mb-4">Prêt à certifier avec méthode ?</h2>
+        <p class="text-white/60 mb-8 text-lg">Rejoignez les bureaux de conseil et d'accompagnement qui font confiance à Agri-Certif pour structurer leurs projets de certification agricole.</p>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+            <a href="https://app.agri-certif.com/" target="_blank"
+               class="inline-flex items-center gap-2 px-10 py-4 rounded-2xl font-bold text-white text-lg transition hover:-translate-y-1 shadow-xl"
+               style="background:linear-gradient(135deg,#C8902A,#a9761f);">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Demander mon accès
+            </a>
+            <a href="/#contact"
+               class="inline-flex items-center gap-2 px-10 py-4 rounded-2xl font-bold border border-white/30 text-white text-lg hover:bg-white/10 transition">
+                <i class="fa-solid fa-envelope"></i> Contacter l'équipe
+            </a>
+        </div>
+        <p class="mt-6 text-white/40 text-sm">Développé par Inenvas · contact@inenvas.fr</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="bg-slate-900 text-slate-400 text-sm text-center py-6">
+    <p>&copy; 2026 Inenvas - Intelligence Environnementale ·
+       <a href="/mentions-legales" class="text-emerald-500 hover:underline ml-1">Mentions légales</a>
+    </p>
+</footer>
+
+<script>
+function toggleMobileMenuC() {
+    const menu = document.getElementById('mobile-menu-c');
+    const h1 = document.getElementById('cham-1');
+    const h2 = document.getElementById('cham-2');
+    const h3 = document.getElementById('cham-3');
+    menu.classList.toggle('hidden');
+    if (!menu.classList.contains('hidden')) {
+        h1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+        h2.style.opacity = '0';
+        h3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+    } else {
+        h1.style.transform = '';
+        h2.style.opacity = '';
+        h3.style.transform = '';
+    }
+}
+function closeMobileMenuC() {
+    document.getElementById('mobile-menu-c').classList.add('hidden');
+    document.getElementById('cham-1').style.transform = '';
+    document.getElementById('cham-2').style.opacity = '';
+    document.getElementById('cham-3').style.transform = '';
+}
+
+const observerC = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observerC.observe(el));
+
+function toggleNavQuiC() {
+    const menu = document.getElementById('nav-qui-menu-c');
+    const icon = document.getElementById('nav-qui-icon-c');
+    menu.classList.toggle('hidden');
+    icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+function toggleNavCertif() {
+    const menu = document.getElementById('nav-certif-menu');
+    const icon = document.getElementById('nav-certif-icon');
+    menu.classList.toggle('hidden');
+    icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+document.addEventListener('click', function(e) {
+    ['nav-qui-dropdown-c', 'nav-certif-dropdown'].forEach(id => {
+        const el = document.getElementById(id);
+        const menuId = id === 'nav-qui-dropdown-c' ? 'nav-qui-menu-c' : 'nav-certif-menu';
+        const iconId = id === 'nav-qui-dropdown-c' ? 'nav-qui-icon-c' : 'nav-certif-icon';
+        if (el && !el.contains(e.target)) {
+            document.getElementById(menuId).classList.add('hidden');
+            document.getElementById(iconId).style.transform = 'rotate(0deg)';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
