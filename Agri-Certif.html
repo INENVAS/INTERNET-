@@ -16,11 +16,15 @@
 
         .hero-bg-certif {
             background-color: #1B4332;
+            background-image: url('bg-header.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-grid-overlay {
             background-image:
-                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
-                radial-gradient(circle at 80% 70%, rgba(45,106,79,0.5) 0%, transparent 50%);
-            background-size: 42px 42px, 42px 42px, 100% 100%;
+                linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 42px 42px, 42px 42px;
         }
 
         .card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
@@ -146,6 +150,7 @@
 <!-- ══════════════════════════ HERO ══════════════════════════ -->
 <header class="hero-bg-certif pt-28 pb-0 text-white relative overflow-hidden">
 
+    <div class="absolute inset-0 hero-grid-overlay" style="background-color:rgba(27,67,50,0.90);"></div>
     <div style="position:absolute;top:-120px;right:-80px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,.06);pointer-events:none;"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-16 pb-16">
@@ -161,11 +166,11 @@
                 </h1>
                 <ul class="flex flex-col gap-3 mb-8">
                     <li class="flex items-start gap-3 text-white/75 text-[15px] leading-relaxed">
-                        <i class="fa-solid fa-circle-check text-emerald-300 mt-1"></i>
+                        <svg class="mt-1 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#74C69D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8 12.5 10.5 15 16 9"/></svg>
                         Centralisez la gestion de vos différents projets de certification.
                     </li>
                     <li class="flex items-start gap-3 text-white/75 text-[15px] leading-relaxed">
-                        <i class="fa-solid fa-circle-check text-emerald-300 mt-1"></i>
+                        <svg class="mt-1 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#74C69D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8 12.5 10.5 15 16 9"/></svg>
                         Plus besoin de remplir vos documents de traçabilité à la main — dématérialisez votre contrôle interne.
                     </li>
                 </ul>
@@ -185,64 +190,137 @@
 
             <!-- MOCKUP -->
             <div class="lg:w-1/2">
-                <div class="rounded-2xl overflow-hidden shadow-2xl bg-white" style="border:1px solid rgba(255,255,255,0.1);">
+                <div class="rounded-2xl overflow-hidden shadow-2xl" style="border:1px solid rgba(255,255,255,0.1);">
                     <div class="flex items-center gap-2 px-4 py-2.5 border-b border-slate-200" style="background:#ECE8E2;">
                         <span class="w-2.5 h-2.5 rounded-full" style="background:#FF5F57;"></span>
                         <span class="w-2.5 h-2.5 rounded-full" style="background:#FEBC2E;"></span>
                         <span class="w-2.5 h-2.5 rounded-full" style="background:#28C840;"></span>
-                        <div class="flex-1 bg-white border border-slate-200 rounded text-[11px] text-slate-400 text-center py-1">app.agri-certif.com/projets/cacao-togo</div>
+                        <div class="flex-1 bg-white border border-slate-200 rounded text-[11px] text-slate-400 text-center py-1">app.agri-certif.com/projets/bio-2026</div>
                     </div>
-                    <div class="grid" style="grid-template-columns:150px 1fr;">
-                        <div class="text-white py-4" style="background:#1B4332;">
-                            <div class="px-3 pb-3 mb-2 border-b border-white/10 font-extrabold text-sm">Agri-<span style="color:#74C69D;">Certif</span></div>
-                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium" style="background:rgba(255,255,255,.1);color:#fff;border-right:2px solid #74C69D;">
-                                <span class="w-2 h-2 rounded-full bg-white/60"></span> Tableau de bord
+                    <div class="flex" style="background:#0B2436;">
+
+                        <!-- Sidebar -->
+                        <div class="w-[132px] shrink-0 flex flex-col text-white" style="background:#0B2436;">
+                            <div class="px-3 pt-3 pb-2 font-extrabold text-[13px]">Agri-<span style="color:#74C69D;">Certif</span></div>
+
+                            <div class="mx-2 mb-2 px-2 py-1.5 rounded-lg flex items-center gap-1.5" style="background:rgba(255,255,255,.06);">
+                                <div class="w-4 h-4 rounded flex items-center justify-center text-[6px] font-extrabold flex-shrink-0" style="background:#74C69D;color:#0B2436;">TC</div>
+                                <div class="leading-tight overflow-hidden">
+                                    <p class="text-[7px] font-bold text-white truncate">TERRA COOP</p>
+                                    <p class="text-[6px] font-semibold" style="color:#74C69D;">Plan Pro</p>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
-                                <span class="w-2 h-2 rounded-sm bg-white/40"></span> Projets
+
+                            <p class="px-3 mt-1 mb-1 text-[6px] font-bold uppercase tracking-wide text-white/30">Menu principal</p>
+                            <div class="flex items-center gap-1.5 mx-1.5 px-2 py-1.5 rounded-md text-[8px] font-semibold" style="background:rgba(255,255,255,.08);">
+                                <span class="w-1.5 h-1.5 rounded-sm bg-white/70"></span> Tableau de bord
                             </div>
-                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
-                                <span class="w-2 h-2 rounded-full bg-white/40"></span> Producteurs
+                            <div class="flex items-center gap-1.5 mx-1.5 mt-0.5 px-2 py-1.5 rounded-md text-[8px] font-semibold" style="background:rgba(116,198,157,.15); color:#74C69D;">
+                                <span class="w-1.5 h-1.5 rounded-sm" style="background:#74C69D;"></span> Mes projets
                             </div>
-                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
-                                <span class="w-2 h-2 bg-white/40" style="clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);"></span> Cartographie
+                            <div class="ml-6 mt-0.5 px-2 py-1 rounded text-[7.5px] font-bold" style="background:rgba(255,255,255,.05); color:#74C69D;">Bio 2026</div>
+                            <div class="ml-6 px-2 py-1 text-[7.5px] text-white/40">Équitable 2025</div>
+
+                            <div class="flex items-center gap-1.5 mx-1.5 mt-2 px-2 py-1.5 rounded-md text-[8px] font-medium text-white/45">
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span> Collaborateurs
                             </div>
-                            <div class="flex items-center gap-2 px-3 py-2 text-[10px] font-medium text-white/45">
-                                <span class="w-2 h-2 rounded-sm bg-white/40"></span> Documents
+
+                            <p class="px-3 mt-2 mb-1 text-[6px] font-bold uppercase tracking-wide text-white/30">Configuration</p>
+                            <div class="flex items-center gap-1.5 mx-1.5 px-2 py-1.5 rounded-md text-[8px] font-medium text-white/45">
+                                <span class="w-1.5 h-1.5 rounded-sm bg-white/30"></span> Abonnement
+                            </div>
+                            <div class="flex items-center gap-1.5 mx-1.5 px-2 py-1.5 rounded-md text-[8px] font-medium text-white/45">
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span> Mon espace
+                            </div>
+
+                            <div class="mt-auto flex items-center gap-1.5 mx-1.5 mb-2.5 px-2 py-1.5 rounded-md" style="background:rgba(255,255,255,.05);">
+                                <div class="w-4 h-4 rounded-full flex items-center justify-center text-[6px] font-extrabold flex-shrink-0" style="background:#C8902A;color:#0B2436;">AC</div>
+                                <p class="text-[7.5px] font-semibold text-white/80 truncate">Admin Coop</p>
                             </div>
                         </div>
-                        <div class="p-4" style="background:#d5c9b7;">
-                            <p class="text-[11px] font-bold text-slate-800 mb-2.5">Projet — Bio 2026 — AIR COOP</p>
-                            <div class="grid grid-cols-3 gap-2 mb-2.5">
-                                <div class="bg-white border border-slate-200 rounded-lg p-2">
-                                    <p class="text-lg font-extrabold leading-none" style="color:#1B4332;">247</p>
-                                    <p class="text-[8px] font-semibold text-slate-400 uppercase mt-0.5">Producteurs</p>
-                                </div>
-                                <div class="bg-white border border-slate-200 rounded-lg p-2">
-                                    <p class="text-lg font-extrabold leading-none" style="color:#1B4332;">1 843</p>
-                                    <p class="text-[8px] font-semibold text-slate-400 uppercase mt-0.5">Hectares</p>
-                                </div>
-                                <div class="bg-white border border-slate-200 rounded-lg p-2">
-                                    <p class="text-lg font-extrabold leading-none" style="color:#1B4332;">94%</p>
-                                    <p class="text-[8px] font-semibold text-slate-400 uppercase mt-0.5">Complets</p>
+
+                        <!-- Main -->
+                        <div class="flex-1 p-3 min-w-0" style="background:#F4F1EC;">
+
+                            <div class="flex items-center justify-between mb-2">
+                                <p class="text-[7.5px] text-slate-400 font-medium truncate">Agri-Certif <span class="mx-0.5">›</span> Projets <span class="mx-0.5">›</span> <span class="text-slate-600 font-bold">Bio 2026 – Cajou</span></p>
+                                <div class="flex items-center gap-1.5 flex-shrink-0">
+                                    <span class="px-1.5 py-0.5 rounded bg-white border border-slate-200 text-[6.5px] font-semibold text-slate-500">Cajou ▾</span>
+                                    <span class="w-4 h-4 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[7px]">🔔</span>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-3 gap-1 px-2 py-1 text-[9px] font-bold text-slate-400 uppercase">
-                                <span>Producteur</span><span>Zone</span><span>Statut</span>
+
+                            <div class="flex items-center flex-wrap gap-1.5 mb-2.5">
+                                <p class="text-[11px] font-extrabold text-slate-900">Bio 2026 – Cajou</p>
+                                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[6.5px] font-bold" style="background:#D8F3DC;color:#1B4332;">
+                                    <span class="w-1 h-1 rounded-full" style="background:#1B4332;"></span> En cours
+                                </span>
+                                <span class="px-1.5 py-0.5 rounded-full text-[6.5px] font-bold" style="background:#F5ECD8;color:#C8902A;">BIO</span>
+                                <span class="px-1.5 py-0.5 rounded-full text-[6.5px] font-semibold bg-slate-200 text-slate-500">FR-BIO-04 · AGRICERT</span>
+                                <span class="px-1.5 py-0.5 rounded-full text-[6.5px] font-semibold bg-slate-200 text-slate-500">Campagne 2026</span>
                             </div>
-                            <div class="grid grid-cols-3 gap-1 bg-white border border-slate-200 rounded px-2 py-1.5 mb-1 text-[9px] font-medium text-slate-700">
-                                <span>Kofi Mensah</span><span>Zone Nord</span><span class="inline-block px-1.5 rounded-full text-[8px] font-bold w-fit" style="background:#D8F3DC;color:#1B4332;">Signé</span>
+
+                            <div class="grid grid-cols-5 gap-1.5 mb-2.5">
+                                <div class="bg-white border border-slate-200 rounded-lg p-1.5">
+                                    <p class="text-[12px] font-extrabold leading-none" style="color:#1B4332;">186</p>
+                                    <p class="text-[5.5px] font-bold text-slate-400 uppercase mt-1">Producteurs</p>
+                                    <div class="h-0.5 rounded-full bg-slate-100 mt-1"><div class="h-0.5 rounded-full" style="width:70%;background:#1B4332;"></div></div>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded-lg p-1.5">
+                                    <p class="text-[12px] font-extrabold leading-none" style="color:#1B4332;">342 ha</p>
+                                    <p class="text-[5.5px] font-bold text-slate-400 uppercase mt-1">Superficie</p>
+                                    <div class="h-0.5 rounded-full bg-slate-100 mt-1"><div class="h-0.5 rounded-full" style="width:55%;background:#1B4332;"></div></div>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded-lg p-1.5">
+                                    <p class="text-[12px] font-extrabold leading-none" style="color:#1B4332;">76%</p>
+                                    <p class="text-[5.5px] font-bold text-slate-400 uppercase mt-1">Complets</p>
+                                    <div class="h-0.5 rounded-full bg-slate-100 mt-1"><div class="h-0.5 rounded-full" style="width:76%;background:#1B4332;"></div></div>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded-lg p-1.5">
+                                    <p class="text-[12px] font-extrabold leading-none" style="color:#C8902A;">5</p>
+                                    <p class="text-[5.5px] font-bold text-slate-400 uppercase mt-1 leading-tight">Écarts à lever</p>
+                                    <div class="h-0.5 rounded-full bg-slate-100 mt-1"><div class="h-0.5 rounded-full" style="width:30%;background:#C8902A;"></div></div>
+                                </div>
+                                <div class="bg-white border border-slate-200 rounded-lg p-1.5">
+                                    <p class="text-[12px] font-extrabold leading-none text-slate-400">1</p>
+                                    <p class="text-[5.5px] font-bold text-slate-400 uppercase mt-1 leading-tight">Déclassées</p>
+                                    <div class="h-0.5 rounded-full bg-slate-100 mt-1"><div class="h-0.5 rounded-full" style="width:8%;background:#94a3b8;"></div></div>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-3 gap-1 bg-white border border-slate-200 rounded px-2 py-1.5 mb-1 text-[9px] font-medium text-slate-700">
-                                <span>Afi Dossou</span><span>Zone Sud</span><span class="inline-block px-1.5 rounded-full text-[8px] font-bold w-fit" style="background:#F5ECD8;color:#C8902A;">En cours</span>
+
+                            <div class="flex items-center gap-2.5 border-b border-slate-200 mb-2 text-[7px] font-bold text-slate-400">
+                                <span class="pb-1.5 border-b-2" style="color:#1B4332;border-color:#1B4332;">Données producteurs</span>
+                                <span class="pb-1.5">Zones de production</span>
+                                <span class="pb-1.5 hidden sm:inline">Gestion administrative</span>
                             </div>
-                            <div class="grid grid-cols-3 gap-1 bg-white border border-slate-200 rounded px-2 py-1.5 text-[9px] font-medium text-slate-700">
-                                <span>Yao Agbeko</span><span>Zone Est</span><span class="inline-block px-1.5 rounded-full text-[8px] font-bold w-fit" style="background:#D8F3DC;color:#1B4332;">Signé</span>
+
+                            <div class="flex items-center justify-between mb-1.5">
+                                <p class="text-[7.5px] font-bold text-slate-700">Liste des producteurs</p>
+                                <div class="flex gap-1">
+                                    <span class="px-1.5 py-0.5 rounded border border-slate-300 bg-white text-[6px] font-semibold text-slate-500">Importer</span>
+                                    <span class="px-1.5 py-0.5 rounded text-[6px] font-semibold text-white" style="background:#0B2436;">+ Producteur</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                                <div class="grid grid-cols-4 gap-1 px-2 py-1 text-[6px] font-bold text-slate-400 uppercase border-b border-slate-100">
+                                    <span>Code</span><span>Producteur</span><span>Zone</span><span>Statut</span>
+                                </div>
+                                <div class="grid grid-cols-4 gap-1 px-2 py-1.5 text-[7px] font-medium text-slate-700 border-b border-slate-50">
+                                    <span class="truncate">BIO26-001</span><span class="truncate">Producteur A</span><span class="truncate">Zone A</span><span class="inline-block px-1 rounded-full text-[6px] font-bold w-fit" style="background:#D8F3DC;color:#1B4332;">Signé</span>
+                                </div>
+                                <div class="grid grid-cols-4 gap-1 px-2 py-1.5 text-[7px] font-medium text-slate-700 border-b border-slate-50">
+                                    <span class="truncate">BIO26-002</span><span class="truncate">Producteur B</span><span class="truncate">Zone B</span><span class="inline-block px-1 rounded-full text-[6px] font-bold w-fit" style="background:#F5ECD8;color:#C8902A;">En cours</span>
+                                </div>
+                                <div class="grid grid-cols-4 gap-1 px-2 py-1.5 text-[7px] font-medium text-slate-700">
+                                    <span class="truncate">BIO26-003</span><span class="truncate">Producteur C</span><span class="truncate">Zone A</span><span class="inline-block px-1 rounded-full text-[6px] font-bold w-fit" style="background:#D8F3DC;color:#1B4332;">Signé</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
         </div>
     </div>
