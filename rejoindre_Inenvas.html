@@ -6,7 +6,7 @@
     <title>Rejoindre notre démarche | Inenvas</title>
     <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -200,7 +200,7 @@
 <!-- ═══ PANEL SLIDE-IN ASSOCIÉS (coming soon) ═══ -->
 <div id="panel-overlay-assoc" onclick="fermerPanelAssocies()" style="position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9996;opacity:0;pointer-events:none;transition:opacity .3s;"></div>
 
-<div id="assoc-panel" role="dialog" aria-modal="true" style="position:fixed;top:0;right:0;width:50vw;min-width:50vw;height:100vh;background:#fff;z-index:9997;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.18);">
+<div id="assoc-panel" role="dialog" aria-modal="true" class="w-full sm:w-[50vw] sm:min-w-[50vw]" style="position:fixed;top:0;right:0;height:100vh;background:#fff;z-index:9997;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.18);">
     <!-- Header vert -->
     <div style="background:linear-gradient(135deg,#065f46,#064e3b);color:#fff;padding:1.25rem 1.5rem;flex-shrink:0;">
         <div class="flex items-start justify-between gap-4">
@@ -435,38 +435,16 @@
             </section>
 
             <!-- ══ STAGE / ALTERNANCE ══ -->
-            <section class="mb-12" data-section="stage">
+            <section class="mb-12" data-section="stage" data-has-offres="false">
                 <h2 class="text-xl font-extrabold text-slate-900 mb-1 flex items-center gap-2">
                     <i class="fa-solid fa-graduation-cap text-emerald-500"></i> Stages & Alternances
                 </h2>
                 <div class="h-0.5 w-16 bg-emerald-500 mb-6"></div>
-
-                <!-- Offre stage carbone agricole -->
-                <div class="offre-card bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mb-4"
-                     onclick="ouvrirPanel('stage-1')">
-                    <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-                        <div>
-                            <h3 class="font-bold text-slate-900 text-lg">Stage – Chargé(e) d'étude et développement de programme carbone agricole</h3>
-                            <p class="text-slate-500 text-sm mt-0.5">
-                                <i class="fa-solid fa-location-dot mr-1 text-emerald-400"></i>Nantes ·
-                                <i class="fa-solid fa-clock ml-2 mr-1 text-emerald-400"></i>4–6 mois ·
-                                <i class="fa-solid fa-calendar ml-2 mr-1 text-emerald-400"></i>À partir de juillet 2026
-                            </p>
-                        </div>
-                        <span class="badge-stage text-xs font-bold px-3 py-1 rounded-full">🎓 Stage Bac+4/5</span>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        Contribuez au lancement du programme carbone agricole d'INENVAS en Afrique : veille stratégique, analyse de marché, identification de partenaires et préparation de la feuille de route opérationnelle.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">Marchés carbone</span>
-                        <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">Agriculture durable</span>
-                        <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">Analyse de marché</span>
-                        <span class="bg-violet-50 text-violet-700 text-xs font-semibold px-3 py-1 rounded-full">Afrique</span>
-                    </div>
-                    <button class="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-white text-sm font-bold transition hover:opacity-90" style="background-color:#065f46;">
-                        <i class="fa-solid fa-arrow-right text-xs"></i> Voir l'offre & postuler
-                    </button>
+                <!-- Aucune offre -->
+                <div class="text-center py-10 bg-white rounded-2xl border border-dashed border-slate-200 text-slate-400">
+                    <i class="fa-solid fa-hourglass-half text-3xl mb-3 block text-slate-300"></i>
+                    <p class="font-semibold text-slate-500">Aucune offre de stage ou d'alternance disponible pour le moment.</p>
+                    <p class="text-sm mt-1">Envoyez une <a href="mailto:contact@inenvas.fr?subject=Candidature spontanée" class="text-emerald-600 hover:underline font-semibold">candidature spontanée</a> !</p>
                 </div>
             </section>
 
@@ -565,27 +543,6 @@
 // DONNÉES DES OFFRES
 // ════════════════════════════════
 const offres = {
-    'stage-1': {
-        titre: "Stage – Chargé(e) d'étude et développement de programme carbone agricole",
-        badge: '<span class="badge-stage text-xs font-bold px-3 py-1 rounded-full inline-block">🎓 Stage 4–6 mois · Bac+4/5</span>',
-        meta: 'Nantes · À partir de juillet 2026 · Bac+4 à Bac+5',
-        sujet: "Candidature Stage - Chargé(e) d'étude programme carbone agricole",
-        description: `INENVAS recherche un·e stagiaire pour renforcer son équipe dans ses travaux en amont du lancement de son <strong>programme carbone agricole en Afrique</strong>, visant à valoriser les pratiques agricoles durables, à renforcer la résilience des exploitations face au changement climatique et à contribuer à la réalisation de projets à impact environnemental et social.<br><br>Le/la stagiaire contribuera à une démarche mêlant <strong>recherche appliquée, analyse de marché, intelligence environnementale et développement de projet</strong>.<br><br><strong>Durée :</strong> 4 à 6 mois &nbsp;·&nbsp; <strong>Période :</strong> à partir de juillet 2026 &nbsp;·&nbsp; <strong>Niveau :</strong> Bac+4 à Bac+5 (École d'ingénieur, Master Environnement, Agronomie, Développement durable, Économie de l'environnement)`,
-        missions: [
-            "<strong>Recherche & veille stratégique :</strong> état de l'art sur les marchés carbone volontaires et réglementaires, analyse des méthodologies carbone applicables à l'agriculture et à l'agroforesterie en Afrique, identification des acteurs clés et enjeux MRV",
-            "<strong>Étude de marché :</strong> cartographie des parties prenantes (agriculteurs, coopératives, ONG, investisseurs, organismes de certification), identification des pays et filières à fort potentiel, analyse des modèles économiques et perspectives des crédits carbone",
-            "<strong>Préparation du lancement :</strong> identification et qualification de partenaires techniques, institutionnels et financiers, rédaction de notes conceptuelles et contribution à la feuille de route opérationnelle du programme",
-        ],
-        profil: [
-            "Intérêt marqué pour les enjeux climatiques, agricoles et le développement international",
-            "Bonne capacité d'analyse, de synthèse et de recherche documentaire",
-            "Maîtrise des outils bureautiques et de l'analyse de données",
-            "Autonomie, rigueur et esprit d'initiative",
-            "Connaissance des marchés carbone, de l'agriculture durable ou du contexte africain : un atout",
-        ],
-        tags: ['Marchés carbone', 'Agriculture durable', 'Analyse de marché', 'MRV', 'Afrique', 'Développement durable'],
-        tagColors: ['emerald', 'emerald', 'blue', 'blue', 'violet', 'emerald'],
-    },
     'benevole-1': {
         titre: 'Bénévole communication & réseaux sociaux',
         badge: '<span class="badge-ouvert text-xs font-bold px-3 py-1 rounded-full inline-block">● Ouvert</span>',
@@ -834,13 +791,42 @@ function fermerPanelAssocies() {
     document.getElementById('panel-overlay-assoc').style.pointerEvents = 'none';
     document.body.style.overflow = '';
 }
-function notifierAssocies() {
+async function notifierAssocies() {
     const email = document.getElementById('assoc-email').value.trim();
     if (!email) { alert('Veuillez entrer votre email.'); return; }
-    window.location.href = `mailto:contact@inenvas.fr?subject=Notification adhesion associe 2027&body=Bonjour, je souhaite être notifié(e) à l'ouverture de la campagne d'adhésion associé 2027.%0A%0AEmail : ${email}`;
-    document.getElementById('assoc-succes').classList.remove('hidden');
+
+    const btn = document.querySelector('#assoc-panel button[onclick="notifierAssocies()"]');
+    const succesEl = document.getElementById('assoc-succes');
+    succesEl.classList.add('hidden');
+    const original = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi…';
+
+    try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            to_email:   'contact@inenvas.fr',
+            to_name:    'Équipe INENVAS',
+            from_name:  'Pré-inscription campagne associés 2027',
+            from_email: email,
+            telephone:  'Non renseigné',
+            poste:      'Notification adhésion associé 2027',
+            message:    `Un visiteur souhaite être notifié à l'ouverture de la campagne d'adhésion associé 2027.\n\nEmail : ${email}`,
+            fichiers:   '(aucun fichier joint)',
+            reply_to:   email,
+        }, EMAILJS_PUBLIC_KEY);
+
+        document.getElementById('assoc-email').value = '';
+        succesEl.classList.remove('hidden');
+    } catch (err) {
+        console.error('EmailJS error:', err);
+        alert('Erreur lors de l\'envoi. Réessayez ou contactez-nous directement à contact@inenvas.fr');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = original;
+    }
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { fermerPanel(); fermerPanelAssocies(); } });
+document.addEventListener('DOMContentLoaded', () => filtrer('tous'));
 
 // ════════════════════════════════
 // NAVBAR
