@@ -125,7 +125,7 @@
         </div>
 
         <!-- Tags compétences -->
-        <div class="mb-6">
+        <div class="mb-6" id="panel-tags-block">
             <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
                 <i class="fa-solid fa-tags text-emerald-500"></i> Compétences clés
             </h3>
@@ -396,9 +396,11 @@
                         <i class="fa-solid fa-envelope text-emerald-500 mr-2"></i>Candidature spontanée
                     </p>
                     <p class="text-slate-500 text-sm mb-3">Pas d'offre qui vous correspond ? Écrivez-nous directement.</p>
-                    <a href="mailto:contact@inenvas.fr?subject=Candidature spontanée INENVAS"
-                       class="block text-center px-4 py-2 rounded-lg text-white text-sm font-bold transition hover:opacity-90"
-                       style="background-color:#065f46;">contact@inenvas.fr</a>
+                    <button onclick="ouvrirPanel('spontanee')"
+                       class="block w-full text-center px-4 py-2 rounded-lg text-white text-sm font-bold transition hover:opacity-90"
+                       style="background-color:#065f46;">
+                        <i class="fa-solid fa-paper-plane mr-1"></i> Envoyer ma candidature spontanée
+                    </button>
                 </div>
             </div>
         </div>
@@ -433,7 +435,7 @@
                 <div class="text-center py-10 bg-white rounded-2xl border border-dashed border-slate-200 text-slate-400">
                     <i class="fa-solid fa-hourglass-half text-3xl mb-3 block text-slate-300"></i>
                     <p class="font-semibold text-slate-500">Aucune offre d'emploi disponible pour le moment.</p>
-                    <p class="text-sm mt-1">Envoyez une <a href="mailto:contact@inenvas.fr?subject=Candidature spontanée" class="text-emerald-600 hover:underline font-semibold">candidature spontanée</a> !</p>
+                    <p class="text-sm mt-1">Envoyez une <a href="#" onclick="ouvrirPanel('spontanee');return false;" class="text-emerald-600 hover:underline font-semibold">candidature spontanée</a> !</p>
                 </div>
             </section>
 
@@ -447,7 +449,7 @@
                 <div class="text-center py-10 bg-white rounded-2xl border border-dashed border-slate-200 text-slate-400">
                     <i class="fa-solid fa-hourglass-half text-3xl mb-3 block text-slate-300"></i>
                     <p class="font-semibold text-slate-500">Aucune offre de stage ou d'alternance disponible pour le moment.</p>
-                    <p class="text-sm mt-1">Envoyez une <a href="mailto:contact@inenvas.fr?subject=Candidature spontanée" class="text-emerald-600 hover:underline font-semibold">candidature spontanée</a> !</p>
+                    <p class="text-sm mt-1">Envoyez une <a href="#" onclick="ouvrirPanel('spontanee');return false;" class="text-emerald-600 hover:underline font-semibold">candidature spontanée</a> !</p>
                 </div>
             </section>
 
@@ -568,6 +570,17 @@ const offres = {
         ],
         tags: ['LinkedIn', 'Instagram', 'Rédaction', 'Canva', 'Veille environnementale'],
         tagColors: ['blue', 'purple', 'slate', 'purple', 'emerald'],
+    },
+    'spontanee': {
+        titre: 'Candidature spontanée',
+        badge: '<span class="badge-ouvert text-xs font-bold px-3 py-1 rounded-full inline-block">● Toujours ouverte</span>',
+        meta: 'Toutes missions · Profil libre',
+        sujet: 'Candidature spontanée INENVAS',
+        description: `Aucune offre ne correspond exactement à votre profil ? Présentez-vous directement à l'équipe INENVAS : nous étudions toutes les candidatures spontanées pour de futures opportunités (emploi, stage, bénévolat).`,
+        missions: [],
+        profil: [],
+        tags: [],
+        tagColors: [],
     }
 };
 
@@ -589,6 +602,7 @@ function ouvrirPanel(id) {
     document.getElementById('panel-description').innerHTML = o.description;
 
     // Missions- titre en gras sur une ligne, détail en dessous
+    document.getElementById('panel-missions-block').style.display = o.missions.length ? '' : 'none';
     const ul = document.getElementById('panel-missions');
     ul.innerHTML = o.missions.map(m => {
         // Séparer le titre (avant ":") du détail (après ":")
@@ -611,10 +625,12 @@ function ouvrirPanel(id) {
     }).join('');
 
     // Profil
+    document.getElementById('panel-profil-block').style.display = o.profil.length ? '' : 'none';
     const up = document.getElementById('panel-profil');
     up.innerHTML = o.profil.map(p => `<li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5 flex-shrink-0 text-xs"></i>${p}</li>`).join('');
 
     // Tags
+    document.getElementById('panel-tags-block').style.display = o.tags.length ? '' : 'none';
     const colorMap = { violet:'bg-violet-50 text-violet-700', blue:'bg-blue-50 text-blue-700', emerald:'bg-emerald-50 text-emerald-700', purple:'bg-purple-50 text-purple-700', slate:'bg-slate-100 text-slate-600' };
     document.getElementById('panel-tags').innerHTML = o.tags.map((t,i) => {
         const c = colorMap[o.tagColors[i]] || colorMap.slate;
@@ -680,7 +696,7 @@ function renderFichiers() {
 // Clé publique EmailJS- remplacez par votre clé sur https://www.emailjs.com
 const EMAILJS_PUBLIC_KEY  = '6xPetzSQNM02k_5cD';
 const EMAILJS_SERVICE_ID  = 'service_wiy529i';
-const EMAILJS_TEMPLATE_ID = 'template_tusm6xp';
+const EMAILJS_TEMPLATE_ID = 'template_4dbtqlm';
 
 // Initialisation correcte du SDK EmailJS v4 (à faire une seule fois au chargement)
 emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
