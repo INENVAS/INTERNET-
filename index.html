@@ -83,6 +83,22 @@
                     <a href="#missions" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos missions</a>
                     <a href="#nos-engagements" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos engagements</a>
                     <a href="#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color: #06589b;">Nous contacter</a>
+                    <div class="relative ml-3" id="nav-search-wrap">
+                        <button onclick="toggleNavSearch()" aria-label="Rechercher sur le site" class="w-10 h-10 flex items-center justify-center rounded-md text-slate-700 hover:bg-teal-500 hover:text-white transition">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <div id="nav-search-form" class="hidden absolute top-full right-0 mt-2 bg-white shadow-xl border border-slate-100 rounded-md p-2 z-50" style="width:320px;">
+                            <div class="flex items-center gap-2">
+                                <input type="text" id="nav-search-input" placeholder="Rechercher sur inenvas.fr..." autocomplete="off"
+                                       oninput="renderSiteSearchResults('nav-search-input','nav-search-results')"
+                                       class="flex-1 px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-emerald-500">
+                                <div class="w-9 h-9 flex items-center justify-center rounded-md text-white flex-shrink-0" style="background-color:#0d9488;">
+                                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                </div>
+                            </div>
+                            <ul id="nav-search-results" class="mt-2 max-h-72 overflow-y-auto divide-y divide-slate-100"></ul>
+                        </div>
+                    </div>
                 </div>
                 <!-- Bouton hamburger mobile -->
                 <button onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" id="hamburger-btn" aria-label="Menu">
@@ -106,6 +122,17 @@
                 <a href="#missions" onclick="closeMobileMenu()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Nos missions</a>
                 <a href="#nos-engagements" onclick="closeMobileMenu()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Nos engagements</a>
                 <a href="#contact" onclick="closeMobileMenu()" class="mt-2 px-4 py-3 text-white font-bold rounded-lg text-center transition" style="background-color: #06589b;">Nous contacter</a>
+                <div class="mt-2">
+                    <div class="flex items-center gap-2">
+                        <input type="text" id="mobile-search-input" placeholder="Rechercher sur inenvas.fr..." autocomplete="off"
+                               oninput="renderSiteSearchResults('mobile-search-input','mobile-search-results')"
+                               class="flex-1 px-4 py-3 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-emerald-500">
+                        <div class="w-11 h-11 flex items-center justify-center rounded-lg text-white flex-shrink-0" style="background-color:#0d9488;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <ul id="mobile-search-results" class="mt-2 max-h-72 overflow-y-auto divide-y divide-slate-100"></ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -433,7 +460,24 @@
                     <p class="text-slate-900 max-w-sm mb-10">
                         Nous contribuons à la transition écologique et au développement durable grâce à l'innovation numérique, le conseil et l'accompagnement.
                     </p>
-                    <a href="mentions-legales" class="text-sm text-emerald-600 hover:text-emerald-800 hover:underline transition">Mentions légales</a>
+                    <a href="mentions-legales" class="text-sm text-emerald-600 hover:text-emerald-800 hover:underline transition">
+                        <i class="fa-solid fa-shield-halved mr-1"></i>Mentions légales
+                    </a>
+                    <br>
+                    <span class="text-sm text-slate-700 font-semibold block mt-3 mb-1">
+                        <i class="fa-solid fa-sitemap mr-1 text-emerald-600"></i>Plan du site
+                    </span>
+                    <ul class="text-sm space-y-1">
+                        <li><a href="#accueil" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Accueil</a></li>
+                        <li><a href="#qui-sommes-nous" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Qui sommes-nous ?</a></li>
+                        <li><a href="https://riskagri.fr" target="_blank" class="text-slate-600 hover:text-emerald-700 hover:underline transition">RiskAgri</a></li>
+                        <li><a href="Agri-Certif" target="_blank" class="text-slate-600 hover:text-emerald-700 hover:underline transition">AgriCertif</a></li>
+                        <li><a href="#missions" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Nos missions</a></li>
+                        <li><a href="#nos-engagements" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Nos engagements</a></li>
+                        <li><a href="rejoindre_Inenvas" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Rejoindre notre démarche</a></li>
+                        <li><a href="#contact" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Nous contacter</a></li>
+                        <li><a href="mentions-legales" class="text-slate-600 hover:text-emerald-700 hover:underline transition">Mentions légales</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-4 text-slate-900 text-lg">Adresse :</h4>
@@ -464,6 +508,11 @@
                            class="w-10 h-10 rounded-md flex items-center justify-center text-white transition shadow-sm hover:-translate-y-0.5 hover:shadow-md"
                            style="background:linear-gradient(135deg,#2563eb,#1e3a8a);">
                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Inenvas" target="_blank"
+                           class="w-10 h-10 rounded-md flex items-center justify-center text-white transition shadow-sm hover:-translate-y-0.5 hover:shadow-md"
+                           style="background:linear-gradient(135deg,#2563eb,#1e3a8a);">
+                           <i class="fa-brands fa-youtube"></i>
                         </a>
                     </div>
                 </div>
@@ -598,6 +647,137 @@
         if (navQui && !navQui.contains(e.target)) {
             document.getElementById('nav-qui-menu').classList.add('hidden');
             document.getElementById('nav-qui-icon').style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // --- Index du contenu du site pour la recherche interne ---
+    const siteSearchIndex = [
+        {
+            title: "Accueil",
+            url: "#accueil",
+            icon: "fa-house",
+            content: "L'intelligence environnementale et le numérique au service de la transition écologique. Nous concevons des outils et accompagnons les organisations pour mettre en place des stratégies favorisant des modèles durables et responsables."
+        },
+        {
+            title: "Qui sommes-nous ?",
+            url: "#qui-sommes-nous",
+            icon: "fa-users",
+            content: "INENVAS est un collectif de jeunes avec diverses compétences : Data Scientists, Développeurs, Ingénieurs environnement, Agronomes et Géographes. Rigueur scientifique et innovation technologique pour le développement durable et la transition écologique."
+        },
+        {
+            title: "RiskAgri",
+            url: "https://riskagri.fr",
+            external: true,
+            icon: "fa-seedling",
+            content: "RiskAgri, solution dédiée à l'analyse et la gestion des risques agricoles."
+        },
+        {
+            title: "AgriCertif",
+            url: "Agri-Certif",
+            external: true,
+            icon: "fa-certificate",
+            content: "AgriCertif est la plateforme de gestion de la certification agricole : traçabilité, contrôle interne, cartographie des parcelles, gestion des flux, certification Bio et filières durables."
+        },
+        {
+            title: "Nos missions",
+            url: "#missions",
+            icon: "fa-bullseye",
+            content: "Développement d'outils numériques sur mesure. Conseil et accompagnement pour vos stratégies de durabilité et de responsabilité sociétale. Formation et sensibilisation aux enjeux environnementaux et au développement durable."
+        },
+        {
+            title: "Nos engagements",
+            url: "#nos-engagements",
+            icon: "fa-earth-europe",
+            content: "Pourquoi l'intelligence environnementale : diagnostic environnemental, stratégies et feuilles de route, outils numériques et aide à la décision pour piloter votre performance environnementale."
+        },
+        {
+            title: "Nos actions",
+            url: "#nos-actions",
+            icon: "fa-calendar-check",
+            content: "Actualités et événements : discussions sur le climat et l'IA, ateliers Fresque du Climat pour entreprises, associations et établissements scolaires."
+        },
+        {
+            title: "Rejoindre notre démarche",
+            url: "rejoindre_Inenvas",
+            icon: "fa-handshake",
+            content: "Rejoindre INENVAS, s'engager dans l'association, bénévolat, intégrer l'équipe pour la transition écologique."
+        },
+        {
+            title: "Nous contacter",
+            url: "#contact",
+            icon: "fa-envelope",
+            content: "Adresse : 3 Rue du Père Joseph Wresinski, 35700 Rennes, France. Contact : contact@inenvas.fr. Formulaire de contact, LinkedIn, Instagram, YouTube."
+        },
+        {
+            title: "Mentions légales",
+            url: "mentions-legales",
+            icon: "fa-shield-halved",
+            content: "Mentions légales du site Inenvas."
+        }
+    ];
+
+    function normalizeText(str) {
+        return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function searchSite(query) {
+        const q = normalizeText(query.trim());
+        if (!q) return [];
+        const terms = q.split(/\s+/).filter(Boolean);
+        return siteSearchIndex
+            .map(entry => {
+                const haystack = normalizeText(entry.title + ' ' + entry.content);
+                const matchCount = terms.filter(t => haystack.includes(t)).length;
+                return { entry, matchCount };
+            })
+            .filter(r => r.matchCount > 0)
+            .sort((a, b) => b.matchCount - a.matchCount)
+            .map(r => r.entry);
+    }
+
+    function renderSiteSearchResults(inputId, resultsId) {
+        const query = document.getElementById(inputId).value;
+        const resultsEl = document.getElementById(resultsId);
+        resultsEl.innerHTML = '';
+        if (!query.trim()) return;
+        const results = searchSite(query);
+        if (results.length === 0) {
+            resultsEl.innerHTML = '<li class="px-3 py-3 text-sm text-slate-400">Aucun résultat sur inenvas.fr pour "' + query.replace(/</g, '') + '"</li>';
+            return;
+        }
+        results.forEach(entry => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = entry.url;
+            if (entry.external) a.target = '_blank';
+            a.className = 'flex items-start gap-3 px-3 py-3 hover:bg-emerald-50 transition text-sm';
+            a.innerHTML = '<i class="fa-solid ' + entry.icon + ' text-emerald-600 mt-0.5"></i>' +
+                '<span><span class="block font-semibold text-slate-800">' + entry.title + '</span>' +
+                '<span class="block text-slate-500 text-xs mt-0.5">' + entry.content.slice(0, 90) + '...</span></span>';
+            a.addEventListener('click', function() {
+                document.getElementById(inputId).value = '';
+                resultsEl.innerHTML = '';
+                const navForm = document.getElementById('nav-search-form');
+                if (navForm) navForm.classList.add('hidden');
+                closeMobileMenu();
+            });
+            li.appendChild(a);
+            resultsEl.appendChild(li);
+        });
+    }
+
+    // --- Recherche interne au site (desktop) ---
+    function toggleNavSearch() {
+        const form = document.getElementById('nav-search-form');
+        form.classList.toggle('hidden');
+        if (!form.classList.contains('hidden')) {
+            document.getElementById('nav-search-input').focus();
+        }
+    }
+    document.addEventListener('click', function(e) {
+        const wrap = document.getElementById('nav-search-wrap');
+        if (wrap && !wrap.contains(e.target)) {
+            document.getElementById('nav-search-form').classList.add('hidden');
         }
     });
 </script>
