@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- PDF.js pour l'aperçu (1ère page) et la lecture des PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
         <!-- Schema.org -->
 <script type="application/ld+json">
     {
@@ -59,9 +61,9 @@
                 </a>
                 <!-- Menu desktop -->
                 <div class="hidden md:flex items-center" style="font-family: 'Aptos', 'Inter', sans-serif;">
-                    <a href="#accueil" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Accueil</a>
+                    <a href="#accueil" class="px-3 h-20 flex items-center font-bold text-sm whitespace-nowrap hover:bg-teal-500 hover:text-white transition">Accueil</a>
                     <div class="relative" id="nav-qui-dropdown">
-                        <button onclick="toggleNavQui()" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition gap-1">
+                        <button onclick="toggleNavQui()" class="px-3 h-20 flex items-center font-bold text-sm whitespace-nowrap hover:bg-teal-500 hover:text-white transition gap-1">
                             Qui sommes-nous ?
                             <i class="fa-solid fa-chevron-down text-xs transition-transform" id="nav-qui-icon"></i>
                         </button>
@@ -80,10 +82,11 @@
                             </a>
                         </div>
                     </div>
-                    <a href="#missions" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos missions</a>
-                    <a href="#nos-engagements" class="px-5 h-20 flex items-center font-bold hover:bg-teal-500 hover:text-white transition">Nos engagements</a>
-                    <a href="#contact" class="px-5 py-2 text-white rounded-md transition shadow-lg font-bold" style="background-color: #06589b;">Nous contacter</a>
-                    <div class="relative ml-3" id="nav-search-wrap">
+                    <a href="#missions" class="px-3 h-20 flex items-center font-bold text-sm whitespace-nowrap hover:bg-teal-500 hover:text-white transition">Nos missions</a>
+                    <a href="#nos-engagements" class="px-3 h-20 flex items-center font-bold text-sm whitespace-nowrap hover:bg-teal-500 hover:text-white transition">Nos engagements</a>
+                    <a href="#etudes-rapports" class="px-3 h-20 flex items-center font-bold text-sm whitespace-nowrap hover:bg-teal-500 hover:text-white transition">Études & Rapports</a>
+                    <a href="#contact" class="ml-4 px-4 py-2 text-white rounded-md transition shadow-lg font-bold text-sm whitespace-nowrap" style="background-color: #06589b;">Nous contacter</a>
+                    <div class="relative ml-4" id="nav-search-wrap">
                         <button onclick="toggleNavSearch()" aria-label="Rechercher sur le site" class="w-10 h-10 flex items-center justify-center rounded-md text-slate-700 hover:bg-teal-500 hover:text-white transition">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -121,6 +124,7 @@
                 </a>
                 <a href="#missions" onclick="closeMobileMenu()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Nos missions</a>
                 <a href="#nos-engagements" onclick="closeMobileMenu()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Nos engagements</a>
+                <a href="#etudes-rapports" onclick="closeMobileMenu()" class="px-4 py-3 font-bold text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition">Études & Rapports</a>
                 <a href="#contact" onclick="closeMobileMenu()" class="mt-2 px-4 py-3 text-white font-bold rounded-lg text-center transition" style="background-color: #06589b;">Nous contacter</a>
                 <div class="mt-2">
                     <div class="flex items-center gap-2">
@@ -439,6 +443,41 @@
     </div>
 </section>
 
+<!-- ÉTUDES & RAPPORTS -->
+<section id="etudes-rapports" class="pt-24 pb-20 bg-slate-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Études & Rapports</h2>
+            <div class="h-0.5 w-full bg-emerald-500 mt-4"></div>
+            <p class="mt-6 text-slate-900 max-w-3xl text-lg text-justify">
+                Retrouvez ici nos publications.
+            </p>
+        </div>
+
+        <div id="er-loading" class="text-slate-500 text-sm">Chargement des documents...</div>
+        <div id="er-empty" class="hidden text-slate-500 text-sm">Aucun document disponible pour le moment.</div>
+        <div id="er-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+</section>
+
+<!-- MODALE ÉTUDES & RAPPORTS -->
+<div id="er-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4" style="background-color: rgba(6,20,20,0.85);">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden">
+        <div class="flex items-center justify-between px-5 py-3 border-b border-slate-200">
+            <h3 id="er-modal-title" class="font-bold text-slate-800 truncate pr-4"></h3>
+            <div class="flex items-center gap-3 flex-shrink-0">
+                <a id="er-modal-download" href="#" download class="text-sm font-semibold text-emerald-600 hover:text-emerald-800 transition">
+                    <i class="fa-solid fa-download mr-1"></i>Télécharger
+                </a>
+                <button onclick="closeErModal()" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-slate-100 transition">
+                    <i class="fa-solid fa-xmark text-slate-600"></i>
+                </button>
+            </div>
+        </div>
+        <div id="er-modal-body" class="flex-1 overflow-auto bg-slate-100 flex items-center justify-center"></div>
+    </div>
+</div>
+
 <footer id="contact" class="pb-8 relative" style="background-image: url('image-bp.jpg'); background-size: cover; background-position: center;">
     <div class="absolute inset-0 bg-white opacity-80"></div>
     <!-- VAGUE UNIQUE -->
@@ -697,6 +736,12 @@
             content: "Actualités et événements : discussions sur le climat et l'IA, ateliers Fresque du Climat pour entreprises, associations et établissements scolaires."
         },
         {
+            title: "Études & Rapports",
+            url: "#etudes-rapports",
+            icon: "fa-folder-open",
+            content: "Rapports, études, publications, photos et vidéos d'Inenvas."
+        },
+        {
             title: "Rejoindre notre démarche",
             url: "rejoindre_Inenvas",
             icon: "fa-handshake",
@@ -782,6 +827,163 @@
     });
 </script>
 
+<script>
+    // ==================== ÉTUDES & RAPPORTS ====================
+    const ER_FOLDER = 'etudes-rapports/';
+    const ER_MANIFEST = ER_FOLDER + 'manifest.json';
+
+    if (window.pdfjsLib) {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+
+    function erFormatTitle(filename) {
+        const base = filename.replace(/\.[^/.]+$/, '');
+        return base.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim()
+            .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function erFileType(filename) {
+        const ext = filename.split('.').pop().toLowerCase();
+        if (ext === 'pdf') return 'pdf';
+        if (['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(ext)) return 'image';
+        if (['mp4', 'webm', 'mov', 'ogg'].includes(ext)) return 'video';
+        return 'autre';
+    }
+
+    async function erRenderPdfThumbnail(url, canvas) {
+        try {
+            const pdf = await pdfjsLib.getDocument(url).promise;
+            const page = await pdf.getPage(1);
+            const viewport = page.getViewport({ scale: 1 });
+            const scale = 320 / viewport.width;
+            const scaledViewport = page.getViewport({ scale });
+            canvas.width = scaledViewport.width;
+            canvas.height = scaledViewport.height;
+            const ctx = canvas.getContext('2d');
+            await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
+        } catch (err) {
+            console.error('Erreur aperçu PDF :', url, err);
+        }
+    }
+
+    function erBuildCard(filename) {
+        const url = ER_FOLDER + encodeURIComponent(filename);
+        const type = erFileType(filename);
+        const title = erFormatTitle(filename);
+
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'text-left bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-emerald-300 transition group';
+        card.onclick = () => openErModal(filename, type, url, title);
+
+        const thumbWrap = document.createElement('div');
+        thumbWrap.className = 'relative w-full aspect-[4/3] bg-slate-100 flex items-center justify-center overflow-hidden';
+
+        if (type === 'pdf') {
+            const canvas = document.createElement('canvas');
+            canvas.className = 'w-full h-full object-contain bg-white';
+            thumbWrap.appendChild(canvas);
+            erRenderPdfThumbnail(url, canvas);
+            const badge = document.createElement('span');
+            badge.className = 'absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded';
+            badge.textContent = 'PDF';
+            thumbWrap.appendChild(badge);
+        } else if (type === 'image') {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = title;
+            img.className = 'w-full h-full object-cover group-hover:scale-105 transition duration-300';
+            thumbWrap.appendChild(img);
+        } else if (type === 'video') {
+            const video = document.createElement('video');
+            video.src = url;
+            video.muted = true;
+            video.preload = 'metadata';
+            video.className = 'w-full h-full object-cover';
+            thumbWrap.appendChild(video);
+            const play = document.createElement('div');
+            play.className = 'absolute inset-0 flex items-center justify-center';
+            play.innerHTML = '<div class="w-12 h-12 rounded-full bg-black/50 flex items-center justify-center"><i class="fa-solid fa-play text-white"></i></div>';
+            thumbWrap.appendChild(play);
+        } else {
+            thumbWrap.innerHTML = '<i class="fa-solid fa-file text-4xl text-slate-400"></i>';
+        }
+
+        const infoWrap = document.createElement('div');
+        infoWrap.className = 'p-4';
+        infoWrap.innerHTML = '<h4 class="font-bold text-slate-800 text-sm">' + title + '</h4>';
+
+        card.appendChild(thumbWrap);
+        card.appendChild(infoWrap);
+        return card;
+    }
+
+    function openErModal(filename, type, url, title) {
+        document.getElementById('er-modal-title').textContent = title;
+        document.getElementById('er-modal-download').href = url;
+        document.getElementById('er-modal-download').setAttribute('download', filename);
+        const body = document.getElementById('er-modal-body');
+        body.innerHTML = '';
+
+        if (type === 'pdf') {
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.className = 'w-full h-full';
+            iframe.style.minHeight = '75vh';
+            body.appendChild(iframe);
+        } else if (type === 'image') {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = title;
+            img.className = 'max-w-full max-h-[75vh] object-contain';
+            body.appendChild(img);
+        } else if (type === 'video') {
+            const video = document.createElement('video');
+            video.src = url;
+            video.controls = true;
+            video.autoplay = true;
+            video.className = 'max-w-full max-h-[75vh]';
+            body.appendChild(video);
+        } else {
+            body.innerHTML = '<p class="p-8 text-slate-500">Aperçu non disponible. Utilisez le bouton Télécharger.</p>';
+        }
+
+        document.getElementById('er-modal').classList.remove('hidden');
+    }
+
+    function closeErModal() {
+        document.getElementById('er-modal').classList.add('hidden');
+        document.getElementById('er-modal-body').innerHTML = '';
+    }
+
+    document.getElementById('er-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeErModal();
+    });
+
+    async function loadEtudesRapports() {
+        const grid = document.getElementById('er-grid');
+        const loading = document.getElementById('er-loading');
+        const empty = document.getElementById('er-empty');
+        try {
+            const res = await fetch(ER_MANIFEST, { cache: 'no-store' });
+            if (!res.ok) throw new Error('manifest introuvable');
+            const files = await res.json();
+            loading.classList.add('hidden');
+            if (!Array.isArray(files) || files.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+            files.forEach(filename => grid.appendChild(erBuildCard(filename)));
+        } catch (err) {
+            console.error("Erreur de chargement d'Études & Rapports :", err);
+            loading.classList.add('hidden');
+            empty.textContent = 'Impossible de charger les documents pour le moment.';
+            empty.classList.remove('hidden');
+        }
+    }
+
+    loadEtudesRapports();
+</script>
 
 </body>
 </html>
